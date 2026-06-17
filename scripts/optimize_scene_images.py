@@ -97,7 +97,7 @@ def optimize_images() -> list[dict[str, object]]:
 
         with Image.open(source) as image:
             image = ImageOps.exif_transpose(image).convert("RGB")
-            image = remove_scene_cta(image, scene_id)
+            image = crop_visual_panel(image, scene_id)
             if image.width > 1440:
                 ratio = 1440 / image.width
                 image = image.resize((1440, round(image.height * ratio)), Image.Resampling.LANCZOS)
@@ -120,6 +120,15 @@ def optimize_images() -> list[dict[str, object]]:
         )
 
     return outputs
+
+
+def crop_visual_panel(image: Image.Image, scene_id: str) -> Image.Image:
+    """Keep only the scene illustration side of the source card."""
+    width, height = image.size
+    side = TEXT_PANEL_SIDE[scene_id]
+    if side == "left":
+        return image.crop((width // 2, 0, width, height))
+    return image.crop((0, 0, width // 2, height))
 
 
 def remove_scene_cta(image: Image.Image, scene_id: str) -> Image.Image:
