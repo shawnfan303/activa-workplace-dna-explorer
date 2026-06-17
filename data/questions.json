@@ -1,0 +1,542 @@
+[
+  {
+    "id": "Q01",
+    "question": "目前最想改善的工作問題是什麼？",
+    "options": [
+      {
+        "id": "Q01_A",
+        "label": "工作容易被打斷，需要更安靜的個人專注空間",
+        "scores": {
+          "focus": 5,
+          "collaboration": 1,
+          "project": 1,
+          "learning": 1,
+          "social": 1,
+          "relax": 2
+        }
+      },
+      {
+        "id": "Q01_B",
+        "label": "討論常臨時發生，但缺少方便快速同步的地方",
+        "scores": {
+          "focus": 1,
+          "collaboration": 5,
+          "project": 2,
+          "learning": 1,
+          "social": 3,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q01_C",
+        "label": "專案資訊分散，團隊需要更一致的共創與追蹤空間",
+        "scores": {
+          "focus": 2,
+          "collaboration": 4,
+          "project": 5,
+          "learning": 2,
+          "social": 1,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q01_D",
+        "label": "員工壓力與疲勞感高，需要能短暫恢復的休憩場域",
+        "scores": {
+          "focus": 1,
+          "collaboration": 1,
+          "project": 1,
+          "learning": 1,
+          "social": 2,
+          "relax": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "Q02",
+    "question": "團隊日常協作的頻率最接近哪一種狀態？",
+    "options": [
+      {
+        "id": "Q02_A",
+        "label": "多數時間各自完成任務，只需要少量同步",
+        "scores": {
+          "focus": 5,
+          "collaboration": 1,
+          "project": 1,
+          "learning": 1,
+          "social": 1,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q02_B",
+        "label": "每天都有臨時討論、站立會或快速對齊",
+        "scores": {
+          "focus": 1,
+          "collaboration": 5,
+          "project": 3,
+          "learning": 1,
+          "social": 2,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q02_C",
+        "label": "常以專案小組運作，需要長時間共同推進",
+        "scores": {
+          "focus": 2,
+          "collaboration": 4,
+          "project": 5,
+          "learning": 2,
+          "social": 1,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q02_D",
+        "label": "協作常發生在茶水間、休息區或非正式交流中",
+        "scores": {
+          "focus": 1,
+          "collaboration": 3,
+          "project": 1,
+          "learning": 1,
+          "social": 5,
+          "relax": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "Q03",
+    "question": "目前最常見的會議型態是什麼？",
+    "options": [
+      {
+        "id": "Q03_A",
+        "label": "2-5人的短時討論、小型視訊或機密談話",
+        "scores": {
+          "focus": 2,
+          "collaboration": 5,
+          "project": 2,
+          "learning": 1,
+          "social": 1,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q03_B",
+        "label": "6人以上的正式會議、客戶會議或跨部門會議",
+        "scores": {
+          "focus": 2,
+          "collaboration": 5,
+          "project": 3,
+          "learning": 2,
+          "social": 2,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q03_C",
+        "label": "非正式分享、部門學習或需要活躍互動的討論",
+        "scores": {
+          "focus": 1,
+          "collaboration": 4,
+          "project": 2,
+          "learning": 5,
+          "social": 3,
+          "relax": 2
+        }
+      },
+      {
+        "id": "Q03_D",
+        "label": "專案工作坊、頭腦風暴或共創會議",
+        "scores": {
+          "focus": 2,
+          "collaboration": 4,
+          "project": 5,
+          "learning": 3,
+          "social": 2,
+          "relax": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "Q04",
+    "question": "專注工作的需求強度如何？",
+    "options": [
+      {
+        "id": "Q04_A",
+        "label": "非常高，常需要長時間不被打斷地處理深度工作",
+        "scores": {
+          "focus": 5,
+          "collaboration": 1,
+          "project": 1,
+          "learning": 2,
+          "social": 1,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q04_B",
+        "label": "中等，需要能在專注與討論之間快速切換",
+        "scores": {
+          "focus": 4,
+          "collaboration": 3,
+          "project": 2,
+          "learning": 1,
+          "social": 1,
+          "relax": 2
+        }
+      },
+      {
+        "id": "Q04_C",
+        "label": "較低，工作多半需要與同事即時討論",
+        "scores": {
+          "focus": 1,
+          "collaboration": 5,
+          "project": 3,
+          "learning": 1,
+          "social": 2,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q04_D",
+        "label": "專注需求來自閱讀、資料查詢或知識吸收",
+        "scores": {
+          "focus": 4,
+          "collaboration": 2,
+          "project": 1,
+          "learning": 5,
+          "social": 1,
+          "relax": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": "Q05",
+    "question": "跨部門溝通需求最接近哪一種？",
+    "options": [
+      {
+        "id": "Q05_A",
+        "label": "需要方便不同部門快速約在一起同步資訊",
+        "scores": {
+          "focus": 1,
+          "collaboration": 5,
+          "project": 3,
+          "learning": 1,
+          "social": 2,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q05_B",
+        "label": "需要長時間與跨部門成員共同推進專案",
+        "scores": {
+          "focus": 2,
+          "collaboration": 4,
+          "project": 5,
+          "learning": 2,
+          "social": 1,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q05_C",
+        "label": "跨部門溝通多發生在培訓、分享或知識交流中",
+        "scores": {
+          "focus": 1,
+          "collaboration": 3,
+          "project": 2,
+          "learning": 5,
+          "social": 2,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q05_D",
+        "label": "希望透過開放社交區提高自然碰面與信任感",
+        "scores": {
+          "focus": 1,
+          "collaboration": 3,
+          "project": 1,
+          "learning": 1,
+          "social": 5,
+          "relax": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "Q06",
+    "question": "教育訓練或內部學習活動的頻率如何？",
+    "options": [
+      {
+        "id": "Q06_A",
+        "label": "很頻繁，需要固定培訓、授課與分組討論空間",
+        "scores": {
+          "focus": 2,
+          "collaboration": 3,
+          "project": 1,
+          "learning": 5,
+          "social": 2,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q06_B",
+        "label": "偶爾舉辦分享會，希望氣氛開放、不像傳統會議室",
+        "scores": {
+          "focus": 1,
+          "collaboration": 3,
+          "project": 1,
+          "learning": 5,
+          "social": 4,
+          "relax": 2
+        }
+      },
+      {
+        "id": "Q06_C",
+        "label": "學習多發生在專案資料查詢與團隊知識共享中",
+        "scores": {
+          "focus": 3,
+          "collaboration": 3,
+          "project": 3,
+          "learning": 5,
+          "social": 1,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q06_D",
+        "label": "教育訓練不是主要需求，空間更需要支援日常工作",
+        "scores": {
+          "focus": 3,
+          "collaboration": 3,
+          "project": 2,
+          "learning": 1,
+          "social": 1,
+          "relax": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "Q07",
+    "question": "客戶或外部訪客來訪頻率如何？",
+    "options": [
+      {
+        "id": "Q07_A",
+        "label": "很頻繁，需要能展現品牌形象與接待品質",
+        "scores": {
+          "focus": 1,
+          "collaboration": 2,
+          "project": 1,
+          "learning": 1,
+          "social": 5,
+          "relax": 3
+        }
+      },
+      {
+        "id": "Q07_B",
+        "label": "常有客戶會議，需要正式且設備完整的會議空間",
+        "scores": {
+          "focus": 2,
+          "collaboration": 5,
+          "project": 3,
+          "learning": 1,
+          "social": 3,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q07_C",
+        "label": "偶爾來訪，重點是有舒適等候與臨時辦公區",
+        "scores": {
+          "focus": 2,
+          "collaboration": 2,
+          "project": 1,
+          "learning": 1,
+          "social": 4,
+          "relax": 4
+        }
+      },
+      {
+        "id": "Q07_D",
+        "label": "較少來訪，空間應優先服務內部效率",
+        "scores": {
+          "focus": 4,
+          "collaboration": 3,
+          "project": 3,
+          "learning": 1,
+          "social": 1,
+          "relax": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "Q08",
+    "question": "員工休息與恢復需求最接近哪一種？",
+    "options": [
+      {
+        "id": "Q08_A",
+        "label": "壓力明顯，需要能短暫抽離與安靜恢復的空間",
+        "scores": {
+          "focus": 2,
+          "collaboration": 1,
+          "project": 1,
+          "learning": 1,
+          "social": 1,
+          "relax": 5
+        }
+      },
+      {
+        "id": "Q08_B",
+        "label": "需要能補充咖啡茶水、零食與能量的交流區",
+        "scores": {
+          "focus": 1,
+          "collaboration": 2,
+          "project": 1,
+          "learning": 1,
+          "social": 5,
+          "relax": 5
+        }
+      },
+      {
+        "id": "Q08_C",
+        "label": "希望休息同時能增加自然碰面、閒聊與信任感",
+        "scores": {
+          "focus": 1,
+          "collaboration": 3,
+          "project": 1,
+          "learning": 1,
+          "social": 5,
+          "relax": 4
+        }
+      },
+      {
+        "id": "Q08_D",
+        "label": "休息需求較低，主要希望空間支援專注與協作切換",
+        "scores": {
+          "focus": 4,
+          "collaboration": 4,
+          "project": 2,
+          "learning": 1,
+          "social": 1,
+          "relax": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": "Q09",
+    "question": "混合辦公或遊牧辦公需求最接近哪一種？",
+    "options": [
+      {
+        "id": "Q09_A",
+        "label": "員工常臨時進辦公室，需要可預約或彈性使用座位",
+        "scores": {
+          "focus": 4,
+          "collaboration": 3,
+          "project": 2,
+          "learning": 1,
+          "social": 2,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q09_B",
+        "label": "遠端視訊、電話與個人通話隱私需求高",
+        "scores": {
+          "focus": 5,
+          "collaboration": 2,
+          "project": 1,
+          "learning": 1,
+          "social": 1,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q09_C",
+        "label": "混合辦公主要用於專案衝刺與短期進駐",
+        "scores": {
+          "focus": 3,
+          "collaboration": 4,
+          "project": 5,
+          "learning": 2,
+          "social": 1,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q09_D",
+        "label": "混合辦公後更需要提高員工進辦公室的交流價值",
+        "scores": {
+          "focus": 1,
+          "collaboration": 4,
+          "project": 2,
+          "learning": 1,
+          "social": 5,
+          "relax": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "Q10",
+    "question": "企業文化最希望辦公空間傳達哪一種特質？",
+    "options": [
+      {
+        "id": "Q10_A",
+        "label": "正式、穩定、專業，讓會議與接待更有秩序",
+        "scores": {
+          "focus": 3,
+          "collaboration": 5,
+          "project": 2,
+          "learning": 1,
+          "social": 3,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q10_B",
+        "label": "敏捷、快速、可變，能因應組織與專案變動",
+        "scores": {
+          "focus": 2,
+          "collaboration": 4,
+          "project": 5,
+          "learning": 2,
+          "social": 2,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q10_C",
+        "label": "創新、學習、開放，鼓勵分享、實驗與知識成長",
+        "scores": {
+          "focus": 2,
+          "collaboration": 3,
+          "project": 4,
+          "learning": 5,
+          "social": 3,
+          "relax": 1
+        }
+      },
+      {
+        "id": "Q10_D",
+        "label": "交流、信任、活力，讓員工更願意連結與停留",
+        "scores": {
+          "focus": 1,
+          "collaboration": 3,
+          "project": 1,
+          "learning": 1,
+          "social": 5,
+          "relax": 4
+        }
+      }
+    ]
+  }
+]

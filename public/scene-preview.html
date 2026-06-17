@@ -1,0 +1,811 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ACTIVA Workplace DNA Scene Image Preview</title>
+    <style>
+      :root {
+        --red: #c8102e;
+        --ink: #202124;
+        --graphite: #4b5563;
+        --line: #e5e7eb;
+        --soft: #f7f7f8;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: #fff;
+        color: var(--ink);
+        font-family: Arial, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      }
+      header {
+        border-bottom: 1px solid var(--line);
+        padding: 32px 28px;
+      }
+      main {
+        margin: 0 auto;
+        max-width: 1280px;
+        padding: 28px;
+      }
+      .eyebrow {
+        color: var(--red);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 10px 0 0;
+        font-size: 34px;
+        line-height: 1.2;
+      }
+      .summary {
+        margin-top: 12px;
+        color: var(--graphite);
+        line-height: 1.7;
+      }
+      .grid {
+        display: grid;
+        gap: 22px;
+      }
+      .card {
+        display: grid;
+        grid-template-columns: minmax(360px, 0.92fr) 1fr;
+        border: 1px solid var(--line);
+        background: #fff;
+      }
+      .image-wrap {
+        background: var(--soft);
+        border-right: 1px solid var(--line);
+      }
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .content {
+        padding: 24px;
+      }
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .meta span {
+        border: 1px solid var(--line);
+        color: var(--graphite);
+        font-size: 12px;
+        padding: 5px 9px;
+      }
+      h2 {
+        margin: 16px 0 0;
+        font-size: 24px;
+        line-height: 1.35;
+      }
+      .reason {
+        margin: 12px 0 0;
+        border-left: 4px solid var(--red);
+        background: var(--soft);
+        padding: 12px 14px;
+        color: var(--ink);
+        line-height: 1.6;
+      }
+      .cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        margin-top: 18px;
+      }
+      h3 {
+        margin: 0;
+        font-size: 14px;
+      }
+      ul {
+        margin: 8px 0 0;
+        padding-left: 18px;
+        color: var(--graphite);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      @media (max-width: 900px) {
+        .card,
+        .cols {
+          grid-template-columns: 1fr;
+        }
+        .image-wrap {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <p class="eyebrow">ACTIVA Workplace DNA Explorer</p>
+      <h1>27 張辦公場景圖片優化預覽</h1>
+      <p class="summary">本頁使用優化後 WebP 圖片，對照場景 ID、模式、需求與特點，供上線前快速檢查圖片品質與資料對應。</p>
+    </header>
+    <main>
+      <section class="grid">
+        
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/F01.webp" alt="專注模式｜思考（獨立專注座艙）" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>F01</span>
+              <span>專注模式</span>
+              <span>1人</span>
+            </div>
+            <h2>專注模式｜思考（獨立專注座艙）</h2>
+            <p class="reason">需要高專注工作的員工／臨時進辦公室的游牧工作者</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>需要不被干擾，集中注意力解決問題</li><li>支持BYOD，允許員工或游牧工作者擺放物品</li><li>能夠按照團隊使用需求，及時調整空間佈局</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>適合員工或游牧工作者獨立辦公</li><li>以半包覆座位降低視覺干擾</li><li>支持短時間專注處理與個人任務完成</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/F02.webp" alt="專注模式｜思考（放鬆專注室）" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>F02</span>
+              <span>專注模式</span>
+              <span>1人</span>
+            </div>
+            <h2>專注模式｜思考（放鬆專注室）</h2>
+            <p class="reason">需要安靜思考的知識工作者／需要短時間沉浸處理文件的人員</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>銜接專注、協作及休息等狀態之間的切換</li><li>放鬆的氛圍中進行沉浸式辦公</li><li>隨時就近使用，隨時回到工作狀態</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>允許員工以放鬆姿態集中注意力辦公的私密空間</li><li>適合從開放辦公區短暫抽離</li><li>支持專注與恢復狀態之間的柔性切換</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/F03.webp" alt="專注模式｜辦公（靈活預約辦公區）" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>F03</span>
+              <span>專注模式</span>
+              <span>1人</span>
+            </div>
+            <h2>專注模式｜辦公（靈活預約辦公區）</h2>
+            <p class="reason">需要臨時座位的外勤或混合辦公人員／跨專案短期進駐團隊</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>滿足應急性或游牧工作者辦公需求</li><li>組合辦公，滿足複雜專案的臨時合作需求</li><li>頻繁溝通，員工之間發生組合辦公變換</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>適合員工或游牧工作者臨時辦公</li><li>支持座位預約與短期使用</li><li>可依人員變動進行彈性配置</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/F04.webp" alt="專注模式｜電話／視訊" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>F04</span>
+              <span>專注模式</span>
+              <span>1人</span>
+            </div>
+            <h2>專注模式｜電話／視訊</h2>
+            <p class="reason">需要頻繁電話溝通的業務與客服／需要私密視訊會議的主管或專案成員</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>處理電話，避免對他人造成影響</li><li>就近使用，隨時回到工作狀態</li><li>完全隔音，保障隱私</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>適合員工或游牧工作者集中思維獨立辦公或接聽電話</li><li>提供私密通話與視訊空間</li><li>降低開放辦公區的聲音干擾</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/F05.webp" alt="專注模式｜辦公（靈活辦公區）" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>F05</span>
+              <span>專注模式</span>
+              <span>1-4人</span>
+            </div>
+            <h2>專注模式｜辦公（靈活辦公區）</h2>
+            <p class="reason">需要快速找到工作座位的員工／短期協作的專案小組</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>滿足應急性或游牧工作者辦公需求</li><li>組合辦公，滿足複雜專案的臨時合作需求</li><li>頻繁溝通，員工之間發生組合辦公變換</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>適合員工或游牧工作者臨時辦公</li><li>支持個人辦公與小型組合辦公並存</li><li>適合靠近公共區域配置，方便快速切換工作狀態</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/C01.webp" alt="協作模式｜即興交流（小型洽談吧桌）" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>C01</span>
+              <span>協作模式</span>
+              <span>2-5人</span>
+            </div>
+            <h2>協作模式｜即興交流（小型洽談吧桌）</h2>
+            <p class="reason">需要即時同步的業務或專案同仁／不需預約會議室的小型討論</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>與同事隨時交流工作中遇到的問題</li><li>方便站、坐姿態轉變，自由切換思維狀態</li><li>避免在工位區討論而打擾他人</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>滿足2-5人的非機密性快速討論</li><li>適合短時間站坐切換與即時同步</li><li>降低臨時討論對工位區的干擾</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/C02.webp" alt="協作模式｜即興交流（半開放獨立協作區）" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>C02</span>
+              <span>協作模式</span>
+              <span>2-4人</span>
+            </div>
+            <h2>協作模式｜即興交流（半開放獨立協作區）</h2>
+            <p class="reason">需要快速討論的專案成員／日常資訊同步的小型團隊</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>與同事隨時交流工作中遇到的問題</li><li>方便站、坐姿態轉變，切換思維狀態</li><li>避免繁瑣的會議室預約和等待，更高效同步日常資訊</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>滿足2-4人的即興討論</li><li>以半開放形式保留討論彈性與基本區隔</li><li>適合快速同步資訊與短時問題解決</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/C03.webp" alt="協作模式｜即興交流（開放協作區）" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>C03</span>
+              <span>協作模式</span>
+              <span>4-8人</span>
+            </div>
+            <h2>協作模式｜即興交流（開放協作區）</h2>
+            <p class="reason">跨部門專案小組／需要短時間展示與討論的團隊</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>能讓不同部門的人方便約到此處開站立會</li><li>與會人有一定活動空間，有助於思考</li><li>移動的設備支援，支援會議臨時投影展示</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>滿足4-8人的非機密性快速部門討論，通常機動性強</li><li>支持站立會、臨時簡報與快速討論</li><li>適合跨部門短時間同步</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/C04.webp" alt="協作模式｜非正式會議（半開放協作區）" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>C04</span>
+              <span>協作模式</span>
+              <span>4-8人</span>
+            </div>
+            <h2>協作模式｜非正式會議（半開放協作區）</h2>
+            <p class="reason">研發與創意團隊／需要小型分享的部門</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>創造性及研發性團隊交流互動</li><li>彙報或講演，需要智慧影音和投影設備支援</li><li>偏開放和活躍氣氛的培訓分享</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>滿足4-8人的非正式會議和內部培訓分享</li><li>適合交流、簡報、講演與小型分享</li><li>比正式會議室更開放，促進互動</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/C05.webp" alt="協作模式｜正式會議（小型會議室）" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>C05</span>
+              <span>協作模式</span>
+              <span>2-3人</span>
+            </div>
+            <h2>協作模式｜正式會議（小型會議室）</h2>
+            <p class="reason">需要快速決策的主管與同仁／小型客戶討論</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>避免繁瑣的會議室預定和等待</li><li>避免工位區交流的拘謹與擁擠</li><li>打破傳統會議室的嚴肅正式</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>滿足2-3人左右的短時討論或頭腦風暴會</li><li>適合低壓、快速且相對私密的小型會議</li><li>支持短時間決策與想法釐清</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/C06.webp" alt="協作模式｜正式會議（小型會議室）" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>C06</span>
+              <span>協作模式</span>
+              <span>2-5人</span>
+            </div>
+            <h2>協作模式｜正式會議（小型會議室）</h2>
+            <p class="reason">需要小型視訊會議的團隊／HR或主管面談</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>滿足2-5人的會議空間，空間避免過大造成浪費</li><li>穩定的網路與視訊、聲音的傳輸</li><li>避免在工位區討論而影響他人</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>滿足2-5人機密性談話和小型視訊會議</li><li>適合小型正式會議、面談與線上同步</li><li>強調穩定影音與基本隱私</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/C07.webp" alt="協作模式｜正式會議（中型會議室）" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>C07</span>
+              <span>協作模式</span>
+              <span>6-10人</span>
+            </div>
+            <h2>協作模式｜正式會議（中型會議室）</h2>
+            <p class="reason">經常與客戶會議的業務或專案團隊／HR與主管接見場景</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>較正式的環境，滿足HR、經理等接見不同人員的需求</li><li>螢幕、電源、網路等智慧支援確保過程順利進行</li><li>儲存零食和水，客戶或參會者隨時取用</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>適用於經常與客戶聯絡的部門</li><li>支持正式會議、接待與跨部門討論</li><li>提供較完整的會議支援與接待條件</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/C08.webp" alt="協作模式｜正式會議（大型會議室）" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>C08</span>
+              <span>協作模式</span>
+              <span>10人以上</span>
+            </div>
+            <h2>協作模式｜正式會議（大型會議室）</h2>
+            <p class="reason">需要大型正式會議的企業／跨部門彙報與策略會議</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>公司大型會議需求，支持安排和預約</li><li>彙報或演講，需要智慧影音和攝影設備的支援</li><li>頻率較低，但部門難得聚齊，仍要促進互動</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>適合10人以上的公司例會、正式會議和專案彙報</li><li>支持大型會議、演講與跨部門聚齊</li><li>需要完整影音、攝影與預約管理支援</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/C09.webp" alt="協作模式｜非正式會議（中型洽談空間）" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>C09</span>
+              <span>協作模式</span>
+              <span>6-10人</span>
+            </div>
+            <h2>協作模式｜非正式會議（中型洽談空間）</h2>
+            <p class="reason">敏捷型組織／需要日常部門會議與分享的團隊</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>去裝修化，能按照組織變動重組佈置</li><li>與會人有一定的活動空間，有助於思考</li><li>智慧設備支援，滿足會議預約、投影、氛圍管理等</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>滿足日常部門會議和學習分享，適合敏捷型組織</li><li>支持可重組、可調整的會議配置</li><li>適合需要彈性氛圍的討論與學習</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/C10.webp" alt="協作模式｜即興交流（工位附屬協作區）" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>C10</span>
+              <span>協作模式</span>
+              <span>1-4人</span>
+            </div>
+            <h2>協作模式｜即興交流（工位附屬協作區）</h2>
+            <p class="reason">需要快速換檔的知識工作者／高壓工作區旁的短暫交流需求</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>銜接員工在專注、協作及休息等狀態之間的轉換</li><li>緩解在辦公位中精神緊張疲勞，休息不充分的問題</li><li>休息時利用碎片化時間換檔或閱讀</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>塑造輕鬆辦公氛圍，允許員工輕鬆辦公和狀態調整</li><li>靠近工位，方便從工作狀態切換到短暫交流</li><li>兼具輕量協作與短暫恢復</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/P01.webp" alt="項目共創｜頭腦風暴空間" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>P01</span>
+              <span>項目共創</span>
+              <span>4-8人</span>
+            </div>
+            <h2>項目共創｜頭腦風暴空間</h2>
+            <p class="reason">產品創新團隊／跨部門工作坊</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>快速找到輕鬆的討論環境，以激勵參與者發表想法</li><li>隨時記錄想法，便於隨時展示給參與者</li><li>產品佈置靈活易變，方便隨時調整、收納</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>支持開放型討論、共創和跨部門工作坊</li><li>適合想法發散、快速記錄與即時展示</li><li>可依工作坊流程調整桌椅與展示配置</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/P02.webp" alt="項目共創｜原創制作室" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>P02</span>
+              <span>項目共創</span>
+              <span>2-6人</span>
+            </div>
+            <h2>項目共創｜原創制作室</h2>
+            <p class="reason">產品研發團隊／需要快速打樣的設計團隊</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>需要製作原型的工具、工具收納空間和操作平臺</li><li>空間給予成員自由走動與站坐，便於思考</li><li>空間靈活性強，寬敞的桌面和視訊設備</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>適用於產品原型製作和測試量化的獨立封閉式場域</li><li>支持工具收納、原型製作與測試迭代</li><li>提供足夠桌面與走動空間</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/P03.webp" alt="項目共創｜項目室" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>P03</span>
+              <span>項目共創</span>
+              <span>4-8人</span>
+            </div>
+            <h2>項目共創｜項目室</h2>
+            <p class="reason">重要專案小組／需要長時間共用戰情資料的團隊</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>提供長時間用於專案資料張貼的白板或牆面</li><li>充分利用周邊收納，保持辦公環境整潔</li><li>方便頻繁互動與溝通，保證團隊進程的高度一致</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>用於開展重要緊急，或者專案衝刺的獨立空間，滿足專案成員緊密協作需求</li><li>支持專案資料長期保留與可視化管理</li><li>適合需要高度同步的專案衝刺</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/L01.webp" alt="學習模式｜正式培訓空間" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>L01</span>
+              <span>學習模式</span>
+              <span>10-30人</span>
+            </div>
+            <h2>學習模式｜正式培訓空間</h2>
+            <p class="reason">內部教育訓練／新人訓練</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>創造性及研發性團隊學習需求更強，需要始終保持學習力，拓展知識與工作技能</li><li>定期的內部培訓，需要智慧影音和投影設備支援</li><li>支持發表、小組討論、授課等多種培訓形式</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>正式的內外部教育訓練封閉空間</li><li>支持授課、簡報、小組討論與培訓互動</li><li>需要穩定影音與投影支援</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/L02.webp" alt="學習模式｜閱覽空間" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>L02</span>
+              <span>學習模式</span>
+              <span>1-6人</span>
+            </div>
+            <h2>學習模式｜閱覽空間</h2>
+            <p class="reason">需要資料查詢的專案團隊／需要閱讀與思考的員工</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>資訊平臺，支援團隊開展專案時資料查詢並交流</li><li>學習範圍應開放活躍，避免刻板嚴肅</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>適合個人獨立辦公思考或者團隊進行專案協作</li><li>支持資料查詢、閱讀與低干擾交流</li><li>營造開放但不過度正式的學習氛圍</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/L03.webp" alt="學習模式｜階梯式活動空間" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>L03</span>
+              <span>學習模式</span>
+              <span>10-30人</span>
+            </div>
+            <h2>學習模式｜階梯式活動空間</h2>
+            <p class="reason">內部分享會／產品發表或部門交流</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>頻繁的彙報或演講，需要智慧影音和投影設備支援</li><li>分享活動偏開放活躍氛圍，應避免傳統會議室的拘謹</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>該場景適合10-30人左右的非正式會議和內部學習</li><li>支持分享、發表、演講與開放式活動</li><li>以階梯式配置提升參與感與可視性</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/S01.webp" alt="社交模式｜櫃台／服務空間" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>S01</span>
+              <span>社交模式</span>
+              <span>1-6人</span>
+            </div>
+            <h2>社交模式｜櫃台／服務空間</h2>
+            <p class="reason">企業接待區／來訪客戶等候區</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>能展示企業的品牌形象和反應企業文化DNA</li><li>舒適和放鬆的環境，讓客戶有賓至如歸的良好體驗</li><li>能有放置筆電的平臺，支持來訪者等候時臨時辦公</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>連接企業內外部的開放式的過渡空間</li><li>支持接待、等候與短暫辦公</li><li>強化企業品牌形象與文化感受</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/S02.webp" alt="社交模式｜茶水間" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>S02</span>
+              <span>社交模式</span>
+              <span>2-8人</span>
+            </div>
+            <h2>社交模式｜茶水間</h2>
+            <p class="reason">需要促進員工交流的辦公室／部門茶話會與小型聚會</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>可以獲取咖啡茶水或零食，補充能量</li><li>講求團隊凝聚力，員工之間討論和熟絡的需要</li><li>可以作為會前準備，會後討論的平臺</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>適合員工茶話會、開聊會客、休息、下午茶、員工派對</li><li>支持非正式交流與能量補給</li><li>可作為會議前後的延伸討論場域</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/S03.webp" alt="社交模式｜Workplaza" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>S03</span>
+              <span>社交模式</span>
+              <span>4-30人</span>
+            </div>
+            <h2>社交模式｜Workplaza</h2>
+            <p class="reason">希望提升組織凝聚力的企業／需要多功能社交核心的辦公室</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>能便捷地獲取水和食物，方便員工及時補充能量</li><li>能夠積極地促進員工彼此情感的連接和信任感</li><li>支持放鬆、洽談等多種社交活動的自由輕鬆氛圍</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>辦公環境的活力中心</li><li>整合休憩、交流、洽談與活動功能</li><li>適合塑造開放且具凝聚力的企業文化</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/R01.webp" alt="放鬆模式｜半開放室內休憩空間" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>R01</span>
+              <span>放鬆模式</span>
+              <span>1-4人</span>
+            </div>
+            <h2>放鬆模式｜半開放室內休憩空間</h2>
+            <p class="reason">需要短暫抽離工作的員工／高壓工作區旁的恢復空間</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>銜接員工在專注、協作及休息等狀態之間的切換</li><li>放鬆身心，幫助從繁忙的工作中短時抽離，緩解疲勞</li><li>休息時利用碎片化時間換檔或閱讀</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>提供員工休息、放鬆的舒適空間</li><li>以半開放配置保留安全感與可及性</li><li>適合短暫休息、閱讀與狀態恢復</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/R02.webp" alt="放鬆模式｜開放洽談空間" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>R02</span>
+              <span>放鬆模式</span>
+              <span>1-6人</span>
+            </div>
+            <h2>放鬆模式｜開放洽談空間</h2>
+            <p class="reason">需要開放休息區的員工／需要非正式洽談的團隊</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>銜接員工在專注、協作及休息等狀態之間的切換</li><li>放鬆身心，幫助從繁忙的工作中短時抽離，緩解疲勞</li><li>可以獲取咖啡茶水或零食，補充能量</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>提供員工休息、放鬆的舒適空間</li><li>兼具開放式休憩與輕量洽談功能</li><li>適合補充能量、短暫休息與非正式交流</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+        <article class="card">
+          <div class="image-wrap">
+            <img src="./images/scenes/R03.webp" alt="放鬆模式｜戶外休憩空間" loading="lazy" />
+          </div>
+          <div class="content">
+            <div class="meta">
+              <span>R03</span>
+              <span>放鬆模式</span>
+              <span>1-6人</span>
+            </div>
+            <h2>放鬆模式｜戶外休憩空間</h2>
+            <p class="reason">需要提升員工健康體驗的企業／希望增加自然連結的辦公環境</p>
+            <div class="cols">
+              <section>
+                <h3>需求</h3>
+                <ul><li>自由活動空間，增加員工之間碰面和對話機會</li><li>環節工作中長時間精神緊張疲勞問題</li><li>與大自然或外部空間緊密銜接，促進身心健康</li></ul>
+              </section>
+              <section>
+                <h3>特點</h3>
+                <ul><li>允許所有員工放鬆閒聊的共用空間</li><li>提供戶外感、自然連結與短暫恢復</li><li>增加員工偶遇與面對面交流</li></ul>
+              </section>
+            </div>
+          </div>
+        </article>
+            
+      </section>
+    </main>
+  </body>
+</html>
