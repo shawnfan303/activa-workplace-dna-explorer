@@ -7,6 +7,9 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true
   },
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isGithubPages ? "/activa-workplace-dna-explorer" : ""
+  },
   basePath: isGithubPages ? "/activa-workplace-dna-explorer" : "",
   assetPrefix: isGithubPages ? "/activa-workplace-dna-explorer/" : ""
 };

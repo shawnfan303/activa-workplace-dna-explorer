@@ -52,6 +52,36 @@ MODE_LABELS = {
     "relax": "放鬆模式",
 }
 
+TEXT_PANEL_SIDE = {
+    "F01": "left",
+    "F02": "right",
+    "F03": "left",
+    "F04": "right",
+    "F05": "right",
+    "C01": "right",
+    "C02": "left",
+    "C03": "right",
+    "C04": "left",
+    "C05": "right",
+    "C06": "left",
+    "C07": "right",
+    "C08": "left",
+    "C09": "right",
+    "C10": "left",
+    "P01": "right",
+    "P02": "right",
+    "P03": "left",
+    "L01": "right",
+    "L02": "left",
+    "L03": "right",
+    "S01": "right",
+    "S02": "left",
+    "S03": "right",
+    "R01": "right",
+    "R02": "left",
+    "R03": "right",
+}
+
 
 def e(value: object) -> str:
     return html.escape(str(value), quote=True)
@@ -67,6 +97,7 @@ def optimize_images() -> list[dict[str, object]]:
 
         with Image.open(source) as image:
             image = ImageOps.exif_transpose(image).convert("RGB")
+            image = remove_scene_cta(image, scene_id)
             if image.width > 1440:
                 ratio = 1440 / image.width
                 image = image.resize((1440, round(image.height * ratio)), Image.Resampling.LANCZOS)
@@ -89,6 +120,33 @@ def optimize_images() -> list[dict[str, object]]:
         )
 
     return outputs
+
+
+def remove_scene_cta(image: Image.Image, scene_id: str) -> Image.Image:
+    """Remove the red '查看場景應用' CTA from the lower text area of source cards."""
+    width, height = image.size
+    side = TEXT_PANEL_SIDE[scene_id]
+    if side == "left":
+        min_x = int(width * 0.055)
+        max_x = int(width * 0.245)
+    else:
+        min_x = int(width * 0.565)
+        max_x = int(width * 0.785)
+
+    min_y = int(height * 0.77)
+    max_y = int(height * 0.91)
+
+    cleaned = image.copy()
+    cleaned_pixels = cleaned.load()
+    sample_x = min(max_x + 6, width - 1)
+    sample_y = min_y
+    fill_color = cleaned_pixels[sample_x, sample_y]
+
+    for y in range(min_y, max_y + 1):
+        for x in range(min_x, max_x + 1):
+            cleaned_pixels[x, y] = fill_color
+
+    return cleaned
 
 
 def build_preview(outputs: list[dict[str, object]]) -> None:

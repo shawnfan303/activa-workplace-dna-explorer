@@ -97,10 +97,10 @@ export default function ResultPage() {
               <button type="button" onClick={handleDownload} className="bg-aurora-red px-5 py-3 text-sm font-semibold text-white shadow-subtle transition hover:bg-red-800">
                 下載診斷結果
               </button>
-              <a href="mailto:?subject=預約 ACTIVA 展廳" className="border border-aurora-red px-5 py-3 text-sm font-semibold text-aurora-red transition hover:bg-aurora-red hover:text-white">
+              <a href="https://www.aurora.com.tw/of/showroom" target="_blank" rel="noreferrer" className="border border-aurora-red px-5 py-3 text-sm font-semibold text-aurora-red transition hover:bg-aurora-red hover:text-white">
                 預約展廳
               </a>
-              <a href="mailto:?subject=聯絡 ACTIVA 業務" className="border border-aurora-line px-5 py-3 text-sm font-semibold text-aurora-ink transition hover:border-aurora-red hover:text-aurora-red">
+              <a href="https://www.aurora.com.tw/of/serviceLocation" target="_blank" rel="noreferrer" className="border border-aurora-line px-5 py-3 text-sm font-semibold text-aurora-ink transition hover:border-aurora-red hover:text-aurora-red">
                 聯絡業務
               </a>
             </div>

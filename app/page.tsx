@@ -1,9 +1,9 @@
 import Link from "next/link";
+import { assetPath } from "@/lib/assets";
 
 const highlights = [
   "以工作型態診斷切入，而不是直接推家具品項",
-  "將 ACTIVA 轉化為可討論的辦公場景解決方案",
-  "第一版使用本地 JSON，方便後續改接 CRM 或問卷系統"
+  "將 ACTIVA 轉化為可討論的辦公場景解決方案"
 ];
 
 export default function HomePage() {
@@ -11,6 +11,7 @@ export default function HomePage() {
     <section className="aurora-container py-16 md:py-24">
       <div className="grid gap-12 md:grid-cols-[1.15fr_0.85fr] md:items-center">
         <div>
+          <img className="mb-8 h-16 w-auto" src={assetPath("/images/aurora-furniture-logo.png")} alt="震旦家具 Aurora Furniture" />
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-aurora-red">ACTIVA workplace strategy</p>
           <h1 className="max-w-3xl text-4xl font-semibold leading-tight text-aurora-ink md:text-6xl">
             用 Workplace DNA 找到更適合企業的辦公場景
