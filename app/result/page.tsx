@@ -1,14 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import scenes from "@/data/workplace-scenes.json";
 import { assetPath } from "@/lib/assets";
 import { DNARadar } from "@/components/DNARadar";
 import { ResultSummary } from "@/components/ResultSummary";
 import { SceneCard } from "@/components/SceneCard";
 import { getImplementationDirections, getRecommendationReason, matchScenes } from "@/lib/recommendations";
-import { modeLabels, workplaceModes } from "@/lib/scoring";
+import { getDominantMode, modeLabels, rankModes, workplaceModes } from "@/lib/scoring";
 import type { WorkplaceDnaResult, WorkplaceScene } from "@/lib/types";
 
 const typedScenes = scenes as WorkplaceScene[];
@@ -29,10 +29,6 @@ function formatPercent(score: number, maxScore: number) {
   return Math.round((score / maxScore) * 100);
 }
 
-function escapeHtml(value: string) {
-  return value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
-}
-
 function buttonClass(variant: string) {
   if (variant === "primary") {
     return "bg-aurora-red px-5 py-3 text-sm font-semibold text-white shadow-subtle transition hover:bg-red-800";
@@ -47,133 +43,69 @@ function buttonClass(variant: string) {
 
 export default function ResultPage() {
   const [result, setResult] = useState<WorkplaceDnaResult | null>(null);
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
+  const reportRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const stored = localStorage.getItem(storageKey);
     if (stored) {
-      setResult(JSON.parse(stored) as WorkplaceDnaResult);
+      const parsed = JSON.parse(stored) as WorkplaceDnaResult;
+      const normalizedResult = {
+        ...parsed,
+        dominantMode: getDominantMode(parsed.scores),
+        rankedModes: rankModes(parsed.scores)
+      };
+      setResult(normalizedResult);
+      localStorage.setItem(storageKey, JSON.stringify(normalizedResult));
     }
   }, []);
 
   const matchedScenes = useMemo(() => matchScenes(result, typedScenes, 5), [result]);
   const implementationDirections = useMemo(() => (result ? getImplementationDirections(result) : []), [result]);
 
-  function handleDownload() {
-    if (!result) {
+  async function handleDownload() {
+    if (!result || !reportRef.current || isGeneratingPdf) {
       return;
     }
 
-    const reportWindow = window.open("", "_blank", "noopener,noreferrer,width=1100,height=900");
-    if (!reportWindow) {
-      window.print();
-      return;
+    setIsGeneratingPdf(true);
+
+    try {
+      const [{ default: html2canvas }, { jsPDF }] = await Promise.all([import("html2canvas"), import("jspdf")]);
+      const canvas = await html2canvas(reportRef.current, {
+        backgroundColor: "#ffffff",
+        scale: 2,
+        useCORS: true
+      });
+      const pdf = new jsPDF("p", "mm", "a4");
+      const pageWidth = pdf.internal.pageSize.getWidth();
+      const pageHeight = pdf.internal.pageSize.getHeight();
+      const imageHeight = (canvas.height * pageWidth) / canvas.width;
+      const imageData = canvas.toDataURL("image/png");
+      let remainingHeight = imageHeight;
+      let position = 0;
+
+      pdf.addImage(imageData, "PNG", 0, position, pageWidth, imageHeight);
+      remainingHeight -= pageHeight;
+
+      while (remainingHeight > 0) {
+        position = remainingHeight - imageHeight;
+        pdf.addPage();
+        pdf.addImage(imageData, "PNG", 0, position, pageWidth, imageHeight);
+        remainingHeight -= pageHeight;
+      }
+
+      const pdfUrl = URL.createObjectURL(pdf.output("blob"));
+      const opened = window.open(pdfUrl, "_blank", "noopener,noreferrer");
+      if (!opened) {
+        const link = document.createElement("a");
+        link.href = pdfUrl;
+        link.download = "ACTIVA-Workplace-DNA-Report.pdf";
+        link.click();
+      }
+    } finally {
+      setIsGeneratingPdf(false);
     }
-
-    const maxScore = Math.max(...Object.values(result.scores), 1);
-    const scoreBlocks = workplaceModes
-      .map((mode) => {
-        const percent = formatPercent(result.scores[mode], maxScore);
-        return `
-          <div class="score">
-            <div><strong>${escapeHtml(modeLabels[mode])}</strong><span>${result.scores[mode]} 分</span></div>
-            <div class="bar"><i style="width:${percent}%"></i></div>
-          </div>
-        `;
-      })
-      .join("");
-    const sceneBlocks = matchedScenes
-      .map(
-        (scene, index) => `
-          <article class="scene">
-            <div class="scene-head">
-              <div>
-                <p>TOP ${index + 1} / ${escapeHtml(modeLabels[scene.mode])}</p>
-                <h3>${escapeHtml(scene.title)}</h3>
-              </div>
-              <span>${escapeHtml(scene.people)}</span>
-            </div>
-            <p class="reason">推薦理由：${escapeHtml(getRecommendationReason(scene, result))}</p>
-            <div class="columns">
-              <section><h4>需求</h4><ul>${scene.needs
-                .slice(0, 2)
-                .map((item) => `<li>${escapeHtml(item)}</li>`)
-                .join("")}</ul></section>
-              <section><h4>特點</h4><ul>${scene.features
-                .slice(0, 2)
-                .map((item) => `<li>${escapeHtml(item)}</li>`)
-                .join("")}</ul></section>
-            </div>
-          </article>
-        `
-      )
-      .join("");
-    const directionBlocks = implementationDirections.map((item, index) => `<li><strong>${index + 1}.</strong> ${escapeHtml(item)}</li>`).join("");
-    const logoSrc = `${window.location.origin}${assetPath("/images/aurora-furniture-logo.png")}`;
-
-    reportWindow.document.write(`<!doctype html>
-      <html lang="zh-Hant">
-        <head>
-          <meta charset="utf-8" />
-          <title>ACTIVA Workplace DNA 診斷結果</title>
-          <style>
-            @page { margin: 14mm; size: A4; }
-            * { box-sizing: border-box; }
-            body { margin: 0; color: #202124; background: #fff; font-family: Arial, "Microsoft JhengHei", sans-serif; }
-            main { max-width: 960px; margin: 0 auto; padding: 28px; }
-            header { border-bottom: 4px solid #c8102e; padding-bottom: 24px; }
-            img.logo { width: 180px; height: auto; margin-bottom: 22px; }
-            .eyebrow, .red { color: #c8102e; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; font-size: 12px; }
-            h1 { margin: 8px 0 0; font-size: 34px; line-height: 1.2; }
-            h2 { margin: 8px 0 0; font-size: 24px; }
-            .summary { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 22px; }
-            .box, .score, .scene, .cta { border: 1px solid #e5e7eb; padding: 16px; }
-            .box p { margin: 0; color: #4b5563; font-size: 13px; }
-            .box strong { display: block; margin-top: 8px; color: #c8102e; font-size: 22px; }
-            section { margin-top: 28px; }
-            .scores { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
-            .score div:first-child { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; }
-            .score span { color: #c8102e; font-weight: 700; }
-            .bar { height: 8px; background: #f7f7f8; margin-top: 12px; }
-            .bar i { display: block; height: 8px; background: #c8102e; }
-            .scene { margin-top: 12px; break-inside: avoid; }
-            .scene-head { display: flex; justify-content: space-between; gap: 18px; align-items: flex-start; }
-            .scene-head p { margin: 0; color: #c8102e; font-size: 12px; font-weight: 700; }
-            h3 { margin: 6px 0 0; font-size: 19px; }
-            .scene-head span { color: #4b5563; white-space: nowrap; font-weight: 700; }
-            .reason { margin: 12px 0 0; padding: 12px; border-left: 4px solid #c8102e; background: #f7f7f8; font-size: 13px; line-height: 1.6; }
-            .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 12px; }
-            h4 { margin: 0; font-size: 13px; }
-            ul { margin: 8px 0 0; padding-left: 18px; color: #4b5563; font-size: 13px; line-height: 1.7; }
-            .directions li { margin-bottom: 10px; }
-            .directions strong { color: #c8102e; }
-            .cta { border-color: #c8102e; background: #f7f7f8; }
-            .actions { display: flex; gap: 10px; margin-top: 20px; }
-            button, a.button { display: inline-block; border: 1px solid #c8102e; background: #c8102e; color: white; padding: 10px 14px; font-weight: 700; text-decoration: none; cursor: pointer; }
-            a.button.secondary { background: white; color: #c8102e; }
-            @media print { .actions { display: none; } main { padding: 0; } }
-          </style>
-        </head>
-        <body>
-          <main>
-            <header>
-              <img class="logo" src="${logoSrc}" alt="Aurora Furniture" />
-              <p class="eyebrow">ACTIVA Workplace DNA Report</p>
-              <h1>企業 Workplace DNA 診斷結果</h1>
-              <div class="summary">
-                <div class="box"><p>最高分主模式</p><strong>${escapeHtml(modeLabels[result.dominantMode])}</strong></div>
-                <div class="box"><p>報告日期</p><strong>${new Date(result.completedAt).toLocaleDateString("zh-TW")}</strong></div>
-              </div>
-            </header>
-            <section><p class="red">01 / Workplace DNA Score</p><h2>企業 Workplace DNA 分數</h2><div class="scores">${scoreBlocks}</div></section>
-            <section><p class="red">02 / Recommended Scenes</p><h2>推薦場景 Top 5</h2>${sceneBlocks}</section>
-            <section><p class="red">03 / Implementation Direction</p><h2>建議導入方向</h2><ol class="directions">${directionBlocks}</ol></section>
-            <section class="cta"><p class="red">Next Step</p><h2>預約展廳</h2><p>建議攜帶本報告至 NEXt-WORK 或 ACTIVA 展示場景，依主模式與 Top 5 場景卡進行空間需求盤點、場景優先級排序與導入路線討論。</p></section>
-            <div class="actions"><button onclick="window.print()">下載 / 另存 PDF</button><a class="button secondary" href="https://www.aurora.com.tw/of/showroom" target="_blank">預約展廳</a></div>
-          </main>
-          <script>setTimeout(() => window.print(), 400);</script>
-        </body>
-      </html>`);
-    reportWindow.document.close();
   }
 
   return (
@@ -228,8 +160,8 @@ export default function ResultPage() {
             <div className="flex flex-wrap gap-3">
               {ctaLinks.map((item) =>
                 item.label === "下載診斷結果" ? (
-                  <button key={item.label} type="button" onClick={handleDownload} className={buttonClass(item.variant)}>
-                    {item.label}
+                  <button key={item.label} type="button" onClick={handleDownload} disabled={isGeneratingPdf} className={buttonClass(item.variant)}>
+                    {isGeneratingPdf ? "PDF 產生中..." : item.label}
                   </button>
                 ) : (
                   <a key={item.label} href={item.href} target="_blank" rel="noreferrer" className={buttonClass(item.variant)}>
@@ -240,8 +172,9 @@ export default function ResultPage() {
             </div>
           </section>
 
-          <section className="print-report hidden bg-white text-aurora-ink">
+          <section ref={reportRef} className="fixed left-[-10000px] top-0 w-[960px] bg-white p-8 text-aurora-ink">
             <header className="border-b-4 border-aurora-red pb-6">
+              <img src={assetPath("/images/aurora-furniture-logo.png")} alt="Aurora Furniture" className="mb-6 h-auto w-[180px]" />
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-aurora-red">ACTIVA Workplace DNA Report</p>
               <h1 className="mt-3 text-4xl font-semibold">企業 Workplace DNA 診斷結果</h1>
               <div className="mt-5 grid grid-cols-2 gap-4 text-sm">

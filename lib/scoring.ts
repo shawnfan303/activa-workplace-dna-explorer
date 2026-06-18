@@ -64,5 +64,5 @@ export function calculateWorkplaceDnaResult(answers: QuestionnaireAnswer[], ques
 }
 
 export function getSceneMatchScore(resultScores: ModeScores, sceneScores: ModeScores) {
-  return workplaceModes.reduce((total, mode) => total + resultScores[mode] * sceneScores[mode], 0);
+  return workplaceModes.reduce((total, mode) => total + resultScores[mode] * (sceneScores[mode] ?? 0), 0);
 }

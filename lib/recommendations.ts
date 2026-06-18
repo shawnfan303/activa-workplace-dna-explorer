@@ -1,28 +1,45 @@
-import { getSceneMatchScore, modeLabels, workplaceModes } from "@/lib/scoring";
+import { getDominantMode, getSceneMatchScore, modeLabels, workplaceModes } from "@/lib/scoring";
 import type { WorkplaceDnaResult, WorkplaceMode, WorkplaceScene } from "@/lib/types";
+
+function sceneModeScore(scene: WorkplaceScene, mode: WorkplaceMode) {
+  return scene.scores[mode] ?? 0;
+}
+
+function sortBySceneFit(result: Pick<WorkplaceDnaResult, "scores">, dominantMode: WorkplaceMode) {
+  return (a: WorkplaceScene, b: WorkplaceScene) => {
+    const dominantScoreDiff = sceneModeScore(b, dominantMode) - sceneModeScore(a, dominantMode);
+    if (dominantScoreDiff !== 0) {
+      return dominantScoreDiff;
+    }
+
+    const matchScoreDiff = getSceneMatchScore(result.scores, b.scores) - getSceneMatchScore(result.scores, a.scores);
+    if (matchScoreDiff !== 0) {
+      return matchScoreDiff;
+    }
+
+    return a.id.localeCompare(b.id);
+  };
+}
 
 export function matchScenes(result: Pick<WorkplaceDnaResult, "scores" | "dominantMode"> | null, scenes: WorkplaceScene[], limit = 5) {
   if (!result) {
     return scenes.slice(0, limit);
   }
 
-  return [...scenes]
-    .sort((a, b) => {
-      const scoreDiff = getSceneMatchScore(result.scores, b.scores) - getSceneMatchScore(result.scores, a.scores);
-      if (scoreDiff !== 0) {
-        return scoreDiff;
-      }
-      return Number(b.mode === result.dominantMode) - Number(a.mode === result.dominantMode);
-    })
-    .slice(0, limit);
+  const dominantMode = getDominantMode(result.scores);
+  const primaryScenes = scenes.filter((scene) => scene.mode === dominantMode).sort(sortBySceneFit(result, dominantMode));
+  const fallbackScenes = scenes.filter((scene) => scene.mode !== dominantMode).sort(sortBySceneFit(result, dominantMode));
+
+  return [...primaryScenes, ...fallbackScenes].slice(0, limit);
 }
 
 export function getRecommendationReason(scene: WorkplaceScene, result: WorkplaceDnaResult) {
+  const dominantMode = getDominantMode(result.scores);
   const alignedModes = workplaceModes
-    .filter((mode) => scene.scores[mode] >= 4 && result.scores[mode] >= Math.max(...Object.values(result.scores)) * 0.6)
+    .filter((mode) => (scene.scores[mode] ?? 0) >= 4 && result.scores[mode] >= Math.max(...Object.values(result.scores)) * 0.6)
     .map((mode) => modeLabels[mode]);
 
-  const primaryReason = alignedModes.length > 0 ? `與你的 ${alignedModes.join("、")} 需求高度吻合` : `與你的 ${modeLabels[result.dominantMode]} 傾向相符`;
+  const primaryReason = alignedModes.length > 0 ? `與你的 ${alignedModes.join("、")} 需求高度吻合` : `與你的 ${modeLabels[dominantMode]} 傾向相符`;
 
   return `${primaryReason}，可支援「${scene.recommendedFor.slice(0, 2).join("、")}」等使用情境。`;
 }
