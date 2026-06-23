@@ -8,6 +8,7 @@ import { CaseResultCard } from "@/components/CaseResultCard";
 import { PublicDataNotice } from "@/components/PublicDataNotice";
 import { SelectedCaseBrief } from "@/components/SelectedCaseBrief";
 import { StakeholderTalkingPoints } from "@/components/StakeholderTalkingPoints";
+import { assetPath } from "@/lib/assets";
 import type { CaseItem, CaseMatchInput } from "@/lib/caseTypes";
 import { generateCaseBriefModel } from "@/lib/briefGenerator";
 import { matchCases } from "@/lib/matching";
@@ -77,7 +78,10 @@ export default function CaseMatchPage() {
       <section className="border-b border-aurora-line bg-aurora-soft">
         <div className="aurora-container py-14 md:py-18">
           <div className="max-w-4xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-aurora-red">Public case matching tool</p>
+            <div className="flex flex-wrap items-center gap-4">
+              <img className="h-10 w-auto md:h-12" src={assetPath("/images/aurora-furniture-logo.png")} alt="震旦家具 AURORA Furniture" />
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-aurora-red">Public case matching tool</p>
+            </div>
             <h1 className="mt-4 text-4xl font-semibold leading-tight text-aurora-ink md:text-6xl">AURORA Case Match Engine</h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-aurora-graphite">
               用公開案例，快速找到最適合企業客戶的辦公空間參考。正式流程分為需求條件、推薦案例與案例摘要三段，協助營業拜訪前快速建立討論方向。
