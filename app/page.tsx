@@ -21,6 +21,9 @@ export default function HomePage() {
             <Link href="/quiz" className="bg-aurora-red px-5 py-3 text-sm font-semibold text-white shadow-subtle transition hover:bg-red-800">
               開始診斷
             </Link>
+            <Link href="/case-match" className="border border-aurora-line px-5 py-3 text-sm font-semibold text-aurora-ink transition hover:border-aurora-red hover:text-aurora-red">
+              公開案例匹配器
+            </Link>
             <Link href="/scenes" className="border border-aurora-line px-5 py-3 text-sm font-semibold text-aurora-ink transition hover:border-aurora-red hover:text-aurora-red">
               查看場景資料
             </Link>
