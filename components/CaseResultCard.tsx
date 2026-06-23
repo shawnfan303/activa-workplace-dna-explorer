@@ -37,14 +37,8 @@ export function CaseResultCard({ item, selected, disabled, onToggle }: CaseResul
           ) : null}
           <p className="mt-4 text-sm leading-7 text-aurora-graphite">{item.recommendationReason}</p>
         </div>
-        <div className="flex flex-col justify-between bg-emerald-50 p-5">
+        <div className="flex flex-col justify-center bg-slate-50 p-5">
           <MatchScoreBadge score={item.score} />
-          <div className="mt-4">
-            <div className="h-2 bg-white">
-              <div className="h-2 bg-emerald-600" style={{ width: `${item.score}%` }} />
-            </div>
-            <p className="mt-2 text-xs leading-5 text-emerald-800">此分數只代表公開案例與目前條件的相近程度。</p>
-          </div>
         </div>
       </div>
 
@@ -68,11 +62,11 @@ export function CaseResultCard({ item, selected, disabled, onToggle }: CaseResul
           <p className="text-xs font-semibold text-aurora-ink">可借鏡重點</p>
           <p className="mt-2 text-sm leading-7 text-aurora-graphite">{item.proposal_angle}</p>
         </div>
-        <div className="border-l-4 border-red-200 bg-red-50 p-4">
+        <div className="border-l-4 border-slate-300 bg-slate-50 p-4">
           <p className="text-xs font-semibold text-aurora-ink">拜訪情境</p>
           <p className="mt-2 text-sm leading-7 text-aurora-graphite">{item.recommended_for.join("、")}</p>
         </div>
-        <div className="border-l-4 border-emerald-200 bg-emerald-50 p-4">
+        <div className="border-l-4 border-aurora-red bg-white p-4">
           <p className="text-xs font-semibold text-aurora-ink">建議開場</p>
           <p className="mt-2 text-sm leading-7 text-aurora-graphite">{item.sales_talking_points[0]}</p>
         </div>

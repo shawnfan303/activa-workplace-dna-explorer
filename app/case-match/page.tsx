@@ -79,7 +79,7 @@ export default function CaseMatchPage() {
         <div className="aurora-container py-14 md:py-18">
           <div className="max-w-4xl">
             <div className="flex flex-wrap items-center gap-4">
-              <img className="h-10 w-auto md:h-12" src={assetPath("/images/aurora-furniture-logo.png")} alt="震旦家具 AURORA Furniture" />
+              <img className="h-10 w-auto md:h-12" src={`${assetPath("/images/aurora-furniture-logo.png")}?v=transparent`} alt="震旦家具 AURORA Furniture" />
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-aurora-red">Public case matching tool</p>
             </div>
             <h1 className="mt-4 text-4xl font-semibold leading-tight text-aurora-ink md:text-6xl">AURORA Case Match Engine</h1>

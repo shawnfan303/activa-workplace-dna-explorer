@@ -89,15 +89,15 @@ export function SelectedCaseBrief({ model }: SelectedCaseBriefProps) {
               <p className="mt-2 text-sm leading-6 text-aurora-graphite">以公開案例來源、需求條件與角色化溝通重點，整理成可供拜訪前討論的儀表板。</p>
             </div>
             <div className="grid grid-cols-3 gap-2 text-center">
-              <div className="border border-red-100 bg-white p-3">
+              <div className="border border-slate-200 bg-white p-3">
                 <p className="text-2xl font-semibold text-aurora-red">{model.selectedCases.length}</p>
                 <p className="mt-1 text-xs text-aurora-graphite">已選案例</p>
               </div>
-              <div className="border border-emerald-100 bg-white p-3">
+              <div className="border border-slate-200 bg-white p-3">
                 <p className="text-2xl font-semibold text-aurora-ink">{averageScore}</p>
                 <p className="mt-1 text-xs text-aurora-graphite">平均匹配</p>
               </div>
-              <div className="border border-sky-100 bg-white p-3">
+              <div className="border border-slate-200 bg-white p-3">
                 <p className="text-2xl font-semibold text-aurora-ink">{model.solutionThemes.length}</p>
                 <p className="mt-1 text-xs text-aurora-graphite">解決主題</p>
               </div>
@@ -106,16 +106,10 @@ export function SelectedCaseBrief({ model }: SelectedCaseBriefProps) {
         </div>
 
         <div className="grid gap-4 md:grid-cols-5">
-          {model.needAssumptions.map((item, index) => (
+          {model.needAssumptions.map((item) => (
             <div
               key={item.label}
-              className={`border p-4 ${
-                index % 3 === 0
-                  ? "border-red-100 bg-red-50"
-                  : index % 3 === 1
-                    ? "border-sky-100 bg-sky-50"
-                    : "border-emerald-100 bg-emerald-50"
-              }`}
+              className="border border-slate-200 bg-slate-50 p-4"
             >
               <p className="text-xs font-semibold text-aurora-red">{item.label}</p>
               <p className="mt-2 text-sm font-semibold leading-6 text-aurora-ink">{item.value}</p>
@@ -169,8 +163,8 @@ export function SelectedCaseBrief({ model }: SelectedCaseBriefProps) {
         </div>
 
         <div className="grid gap-4 md:grid-cols-3">
-          {model.strategyCards.map((item, index) => (
-            <div key={item.title} className={`border-l-4 p-4 ${index % 2 === 0 ? "border-l-red-300 bg-red-50" : "border-l-sky-300 bg-sky-50"}`}>
+          {model.strategyCards.map((item) => (
+            <div key={item.title} className="border-l-4 border-l-slate-300 bg-slate-50 p-4">
               <p className="text-sm font-semibold text-aurora-ink">{item.title}</p>
               <p className="mt-2 text-sm leading-6 text-aurora-graphite">{item.description}</p>
             </div>
@@ -178,11 +172,11 @@ export function SelectedCaseBrief({ model }: SelectedCaseBriefProps) {
         </div>
 
         <div className="grid gap-4 md:grid-cols-[1.2fr_0.8fr]">
-          <div className="border-l-4 border-l-red-300 bg-red-50 p-4">
+          <div className="border-l-4 border-l-aurora-red bg-white p-4">
             <p className="text-sm font-semibold text-aurora-red">建議營業開場話術</p>
             <p className="mt-3 text-sm leading-7 text-aurora-ink">{model.openingTalk}</p>
           </div>
-          <div className="border-l-4 border-l-emerald-300 bg-emerald-50 p-4">
+          <div className="border-l-4 border-l-slate-300 bg-slate-50 p-4">
             <p className="text-sm font-semibold text-aurora-red">對應解決方案主題</p>
             <p className="mt-3 text-sm leading-7 text-aurora-ink">{themeSummary(model.solutionThemes)}</p>
             <p className="mt-4 text-sm font-semibold text-aurora-red">角色化提醒</p>
@@ -195,7 +189,7 @@ export function SelectedCaseBrief({ model }: SelectedCaseBriefProps) {
         </div>
 
         <div className="grid gap-4 md:grid-cols-2">
-          <div className="border-l-4 border-l-sky-300 bg-sky-50 p-4">
+          <div className="border-l-4 border-l-slate-300 bg-slate-50 p-4">
             <p className="text-sm font-semibold text-aurora-red">建議展廳參觀重點</p>
             <ul className="mt-3 space-y-2 text-sm leading-6 text-aurora-graphite">
               {model.showroomFocus.map((item) => (
