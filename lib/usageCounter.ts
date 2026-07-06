@@ -1,4 +1,4 @@
-export const usageCounterBase = 3898;
+export const usageCounterBase = 3899;
 export const usageCounterStorageKey = "activa-workplace-dna-usage-count";
 export const usageCounterEventName = "activa-workplace-dna-usage-count-updated";
 export const usageCounterEndpoint = process.env.NEXT_PUBLIC_USAGE_COUNTER_ENDPOINT ?? "";

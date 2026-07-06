@@ -1,4 +1,4 @@
-const INITIAL_COUNT = 3898;
+const INITIAL_COUNT = 3899;
 const SHEET_NAME = "UsageCounter";
 
 function doGet(event) {
