@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import questions from "@/data/questions.json";
 import { QuestionCard } from "@/components/QuestionCard";
 import { calculateWorkplaceDnaResult } from "@/lib/scoring";
+import { incrementSharedUsageCount } from "@/lib/usageCounter";
 import type { Question, QuestionnaireAnswer } from "@/lib/types";
 
 const typedQuestions = questions as Question[];
@@ -11,7 +12,7 @@ const typedQuestions = questions as Question[];
 export default function QuizPage() {
   const router = useRouter();
 
-  function handleSubmit(formData: FormData) {
+  async function handleSubmit(formData: FormData) {
     const answers = typedQuestions.map<QuestionnaireAnswer>((question) => ({
       questionId: question.id,
       optionId: formData.get(question.id) as string
@@ -23,6 +24,11 @@ export default function QuizPage() {
 
     const result = calculateWorkplaceDnaResult(answers, typedQuestions);
     localStorage.setItem("activa-workplace-dna-result", JSON.stringify(result));
+    try {
+      await incrementSharedUsageCount();
+    } catch {
+      // Counter availability should not block the diagnosis workflow.
+    }
     router.push("/result");
   }
 

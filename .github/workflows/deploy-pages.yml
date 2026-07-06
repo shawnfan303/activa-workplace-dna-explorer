@@ -38,6 +38,8 @@ jobs:
 
       - name: Build static site
         run: pnpm run build
+        env:
+          NEXT_PUBLIC_USAGE_COUNTER_ENDPOINT: ${{ vars.USAGE_COUNTER_ENDPOINT }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
