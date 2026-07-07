@@ -8,7 +8,6 @@ import solutionMappingData from "@/src/data/solutionMapping.json";
 import stakeholderPlaybooksData from "@/src/data/stakeholderPlaybooks.json";
 import tagsData from "@/src/data/tags.discovery.json";
 import { DiscoveryBrief } from "@/src/components/DiscoveryBrief";
-import { DiscoveryCounterPanel } from "@/src/components/DiscoveryCounterPanel";
 import { DiscoveryForm } from "@/src/components/DiscoveryForm";
 import { DiscoverySummaryPanel } from "@/src/components/DiscoverySummaryPanel";
 import { ExhibitionAdviceCard } from "@/src/components/ExhibitionAdviceCard";
@@ -140,7 +139,6 @@ export default function DiscoveryAssistantPage() {
             </section>
           ) : (
             <>
-              <DiscoveryCounterPanel counters={result.counters} />
               <section className="border border-aurora-line bg-white p-6">
                 <p className="text-sm font-semibold text-aurora-red">Recommended discovery axis</p>
                 <h2 className="mt-1 text-3xl font-semibold text-aurora-ink">建議問診主軸</h2>
@@ -172,7 +170,19 @@ export default function DiscoveryAssistantPage() {
               <button type="button" onClick={() => goToStep("input")} className="border border-aurora-line px-5 py-3 text-sm font-semibold text-aurora-ink hover:border-aurora-red hover:text-aurora-red">重新設定條件</button>
             </div>
           </div>
-          <DiscoveryBrief markdown={result.briefMarkdown} onCopy={() => markAction("copied")} onExport={() => markAction("exported")} onPrint={() => markAction("printed")} />
+          <DiscoveryBrief
+            input={input}
+            questions={result.questions}
+            stakeholderGroups={result.stakeholderQuestions}
+            followUps={result.followUps}
+            mappedSolutions={result.mappedSolutions}
+            exhibitionAdvice={result.exhibitionAdvice}
+            counters={result.counters}
+            markdown={result.briefMarkdown}
+            onCopy={() => markAction("copied")}
+            onExport={() => markAction("exported")}
+            onPrint={() => markAction("printed")}
+          />
         </div>
       ) : null}
 
