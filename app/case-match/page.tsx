@@ -55,6 +55,12 @@ export default function CaseMatchPage() {
   const selectedCases = matchedCases.filter((item) => selectedCaseIds.includes(item.id));
   const briefModel = useMemo(() => generateCaseBriefModel(input, selectedCases), [input, selectedCases]);
   const lastReviewed = cases.map((item) => item.last_reviewed).sort().at(-1);
+  const conditionSummary = [
+    { label: "產業", value: input.industry.join("、") },
+    { label: "空間", value: input.space_types.join("、") },
+    { label: "痛點", value: input.pain_points.join("、") },
+    { label: "窗口", value: input.stakeholder || "尚未選擇" }
+  ];
 
   function toggleSelectedCase(caseId: string) {
     setSelectedCaseIds((current) => {
@@ -163,49 +169,84 @@ export default function CaseMatchPage() {
       ) : null}
 
       {flowStep === "results" ? (
-        <div className="aurora-container grid gap-8 pb-10 lg:grid-cols-[0.8fr_1.2fr]">
-          <div className="space-y-6">
-            <StakeholderTalkingPoints stakeholder={input.stakeholder} />
-            <div className="border border-aurora-line bg-white p-5">
-              <p className="text-sm font-semibold text-aurora-red">匹配分數說明</p>
-              <h2 className="mt-1 text-xl font-semibold text-aurora-ink">案例與使用者條件的匹配分數</h2>
-              <p className="mt-3 text-sm leading-7 text-aurora-graphite">
-                分數由產業、空間需求、痛點、解決方案主題、工作模式、專案情境與是否有公開來源連結計算，代表公開案例與目前條件的相近程度。它不是成交率、案例品質分數，也不代表此案例一定適合客戶。
-              </p>
-            </div>
-            <button type="button" onClick={() => goToStep("input")} className="border border-aurora-line px-5 py-3 text-sm font-semibold text-aurora-ink transition hover:border-aurora-red hover:text-aurora-red">
-              返回修改條件
-            </button>
-          </div>
-
-          <section id="case-results" className="space-y-4">
-            <div>
-              <p className="text-sm font-semibold text-aurora-red">Top 5 推薦案例</p>
-              <h2 className="mt-1 text-3xl font-semibold text-aurora-ink">根據目前條件排序</h2>
-              <p className="mt-2 text-sm leading-7 text-aurora-graphite">請勾選 1–3 個案例加入摘要。系統使用震旦家具與大震設計公開來源資料。</p>
+        <div className="aurora-container space-y-5 pb-10">
+          <section className="border border-aurora-line bg-white p-5">
+            <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_240px] lg:items-start">
+              <div>
+                <p className="text-sm font-semibold text-aurora-red">Case shortlist</p>
+                <h2 className="mt-1 text-3xl font-semibold text-aurora-ink">Top 5 推薦案例短名單</h2>
+                <p className="mt-2 text-sm leading-7 text-aurora-graphite">
+                  此頁不是問診摘要，而是拜訪前的案例候選清單。先比較案例是否能作為開場素材，再選 1–3 個加入最後摘要。
+                </p>
+              </div>
+              <div className="border border-aurora-line bg-aurora-soft p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-aurora-red">Selected</p>
+                <p className="mt-2 text-3xl font-semibold tabular-nums text-aurora-ink">{selectedCases.length} / 3</p>
+                <p className="mt-1 text-sm text-aurora-graphite">已加入案例摘要</p>
+              </div>
             </div>
 
-            {matchedCases.map((item) => (
-              <CaseResultCard
-                key={item.id}
-                item={item}
-                selected={selectedCaseIds.includes(item.id)}
-                disabled={selectedCaseIds.length >= 3}
-                onToggle={toggleSelectedCase}
-              />
-            ))}
-
-            <div className="flex flex-col gap-3 border border-aurora-line bg-white p-5 md:flex-row md:items-center md:justify-between">
-              <p className="text-sm text-aurora-graphite">已選 {selectedCases.length} 個案例。請選擇 1–3 個案例後產生摘要。</p>
-              <button
-                type="button"
-                onClick={() => goToStep("brief")}
-                disabled={selectedCases.length === 0}
-                className="bg-aurora-red px-6 py-3 text-sm font-semibold text-white shadow-subtle transition hover:bg-red-800 disabled:cursor-not-allowed disabled:opacity-40"
-              >
-                產生案例匹配摘要
-              </button>
+            <div className="mt-5 grid gap-3 md:grid-cols-4">
+              {conditionSummary.map((item) => (
+                <div key={item.label} className="border border-aurora-line bg-white p-3">
+                  <p className="text-xs font-semibold text-aurora-red">{item.label}</p>
+                  <p className="mt-1 truncate text-sm text-aurora-ink" title={item.value}>{item.value}</p>
+                </div>
+              ))}
             </div>
+          </section>
+
+          <section className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_320px]">
+            <div id="case-results" className="space-y-3">
+              <div className="hidden border border-aurora-line bg-aurora-soft px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-aurora-graphite lg:grid lg:grid-cols-[72px_minmax(0,1fr)_176px_190px]">
+                <span>Rank</span>
+                <span>Case / reason</span>
+                <span>Use case</span>
+                <span>Action</span>
+              </div>
+
+              {matchedCases.map((item, index) => (
+                <CaseResultCard
+                  key={item.id}
+                  item={item}
+                  rank={index + 1}
+                  selected={selectedCaseIds.includes(item.id)}
+                  disabled={selectedCaseIds.length >= 3}
+                  onToggle={toggleSelectedCase}
+                />
+              ))}
+            </div>
+
+            <aside className="space-y-4 lg:sticky lg:top-6 lg:self-start">
+              <StakeholderTalkingPoints stakeholder={input.stakeholder} />
+              <div className="border border-aurora-line bg-white p-5">
+                <p className="text-sm font-semibold text-aurora-red">閱讀方式</p>
+                <ul className="mt-3 space-y-2 text-sm leading-6 text-aurora-graphite">
+                  <li>- 先看分數與推薦原因，判斷是否適合作為拜訪開場。</li>
+                  <li>- 再看「適合使用」與「可借鏡重點」，決定是否加入摘要。</li>
+                  <li>- 需要完整背景時，再展開「查看詳細說明」。</li>
+                </ul>
+              </div>
+              <div className="border border-aurora-line bg-white p-5">
+                <p className="text-sm font-semibold text-aurora-red">匹配分數</p>
+                <p className="mt-2 text-sm leading-7 text-aurora-graphite">
+                  分數代表公開案例與目前條件的相近程度，不是成交率或案例品質分數。
+                </p>
+              </div>
+              <div className="grid gap-3 border border-aurora-line bg-white p-5">
+                <button type="button" onClick={() => goToStep("input")} className="border border-aurora-line px-5 py-3 text-sm font-semibold text-aurora-ink transition hover:border-aurora-red hover:text-aurora-red">
+                  返回修改條件
+                </button>
+                <button
+                  type="button"
+                  onClick={() => goToStep("brief")}
+                  disabled={selectedCases.length === 0}
+                  className="bg-aurora-red px-6 py-3 text-sm font-semibold text-white shadow-subtle transition hover:bg-red-800 disabled:cursor-not-allowed disabled:opacity-40"
+                >
+                  產生案例匹配摘要
+                </button>
+              </div>
+            </aside>
           </section>
         </div>
       ) : null}

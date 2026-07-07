@@ -3,6 +3,7 @@ import { MatchScoreBadge } from "./MatchScoreBadge";
 
 type CaseResultCardProps = {
   item: MatchedCase;
+  rank: number;
   selected: boolean;
   disabled: boolean;
   onToggle: (caseId: string) => void;
@@ -20,56 +21,53 @@ function TagList({ items }: { items: string[] }) {
   );
 }
 
-export function CaseResultCard({ item, selected, disabled, onToggle }: CaseResultCardProps) {
+export function CaseResultCard({ item, rank, selected, disabled, onToggle }: CaseResultCardProps) {
   const sourceLabel = item.source_url.includes("aid.aurora.com.tw") ? "大震設計" : "震旦家具";
 
   return (
-    <article className={`break-inside-avoid border bg-white shadow-sm transition duration-200 ease-out hover:-translate-y-0.5 hover:shadow-subtle ${selected ? "border-aurora-red" : "border-aurora-line"}`}>
-      <div className="grid gap-6 p-5 lg:grid-cols-[minmax(0,1fr)_190px]">
-        <div className="min-w-0 space-y-4">
-          <div className="flex flex-wrap items-center gap-2 text-xs font-semibold">
-            <span className="uppercase tracking-[0.16em] text-aurora-red">公開案例</span>
-            <span className="border border-aurora-line bg-aurora-soft px-2.5 py-1 text-aurora-graphite">{sourceLabel}</span>
-          </div>
-          <h3 className="text-2xl font-semibold leading-snug text-aurora-ink">{item.title}</h3>
-          {item.score < 40 ? (
-            <p className="text-sm font-semibold text-red-700">目前公開案例資料匹配度較低，建議改由專人進一步判斷。</p>
-          ) : null}
-          <p className="text-sm leading-7 text-aurora-graphite">{item.recommendationReason}</p>
+    <article className={`border bg-white transition duration-200 ease-out hover:border-aurora-red hover:shadow-subtle ${selected ? "border-aurora-red shadow-subtle" : "border-aurora-line"}`}>
+      <div className="grid gap-0 lg:grid-cols-[72px_minmax(0,1fr)_176px_190px]">
+        <div className="flex items-start border-b border-aurora-line bg-aurora-soft p-4 lg:border-b-0 lg:border-r">
+          <span className="text-xs font-semibold uppercase tracking-[0.16em] text-aurora-red">No.</span>
+          <span className="ml-2 text-2xl font-semibold leading-none tabular-nums text-aurora-ink">{rank}</span>
+        </div>
 
-          <div className="grid gap-3 border-y border-aurora-line py-4 md:grid-cols-3">
-            <div>
-              <p className="mb-2 text-xs font-semibold text-aurora-ink">產業</p>
+        <div className="min-w-0 border-b border-aurora-line p-4 lg:border-b-0 lg:border-r">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="border border-aurora-line bg-white px-2.5 py-1 text-xs font-semibold text-aurora-graphite">{sourceLabel}</span>
+            <span className="text-xs font-semibold uppercase tracking-[0.14em] text-aurora-red">Public case</span>
+          </div>
+          <h3 className="mt-2 text-xl font-semibold leading-snug text-aurora-ink">{item.title}</h3>
+          {item.score < 40 ? (
+            <p className="mt-2 text-sm font-semibold text-red-700">目前公開案例資料匹配度較低，建議改由專人進一步判斷。</p>
+          ) : null}
+          <p className="mt-3 text-sm leading-7 text-aurora-graphite">{item.recommendationReason}</p>
+
+          <div className="mt-4 grid gap-3 md:grid-cols-3">
+            <div className="min-w-0">
+              <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-aurora-ink">Industry</p>
               <TagList items={item.industry} />
             </div>
-            <div>
-              <p className="mb-2 text-xs font-semibold text-aurora-ink">解決方案</p>
+            <div className="min-w-0">
+              <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-aurora-ink">Solution</p>
               <TagList items={item.solution_themes} />
             </div>
-            <div>
-              <p className="mb-2 text-xs font-semibold text-aurora-ink">空間</p>
+            <div className="min-w-0">
+              <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-aurora-ink">Space</p>
               <TagList items={item.space_types} />
-            </div>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2">
-            <div>
-              <p className="text-xs font-semibold text-aurora-ink">可借鏡重點</p>
-              <p className="mt-2 text-sm leading-7 text-aurora-graphite">{item.proposal_angle}</p>
-            </div>
-            <div>
-              <p className="text-xs font-semibold text-aurora-ink">建議開場</p>
-              <p className="mt-2 text-sm leading-7 text-aurora-graphite">{item.sales_talking_points[0]}</p>
             </div>
           </div>
         </div>
 
-        <aside className="flex flex-col gap-4 border-t border-aurora-line pt-5 lg:border-l lg:border-t-0 lg:pl-5 lg:pt-0">
+        <div className="border-b border-aurora-line p-4 lg:border-b-0 lg:border-r">
+          <p className="text-xs font-semibold text-aurora-ink">適合使用</p>
+          <p className="mt-2 text-sm leading-7 text-aurora-graphite">{item.recommended_for.slice(0, 3).join("、")}</p>
+          <p className="mt-4 text-xs font-semibold text-aurora-ink">可借鏡重點</p>
+          <p className="mt-2 text-sm leading-7 text-aurora-graphite">{item.proposal_angle}</p>
+        </div>
+
+        <aside className="flex flex-col justify-between gap-4 p-4">
           <MatchScoreBadge score={item.score} />
-          <div>
-            <p className="text-xs font-semibold text-aurora-ink">拜訪情境</p>
-            <p className="mt-2 text-sm leading-7 text-aurora-graphite">{item.recommended_for.join("、")}</p>
-          </div>
           <div className="grid gap-2">
             <button
               type="button"
@@ -93,15 +91,25 @@ export function CaseResultCard({ item, selected, disabled, onToggle }: CaseResul
         </aside>
       </div>
 
-      <details className="border-t border-aurora-line px-5 py-4">
+      <details className="border-t border-aurora-line px-4 py-3">
         <summary className="cursor-pointer text-sm font-semibold text-aurora-ink">查看詳細說明</summary>
-        <div className="mt-3 grid gap-3 lg:grid-cols-[1fr_0.7fr]">
-          <p className="mt-3 text-sm leading-7 text-aurora-graphite">{item.summary}</p>
-          <ul className="mt-3 space-y-1 text-sm text-aurora-graphite">
-            {item.matchedReasons.map((reason) => (
-              <li key={reason}>- {reason}</li>
-            ))}
-          </ul>
+        <div className="mt-4 grid gap-4 lg:grid-cols-[0.95fr_1.05fr_0.7fr]">
+          <div>
+            <p className="text-xs font-semibold text-aurora-ink">案例摘要</p>
+            <p className="mt-2 text-sm leading-7 text-aurora-graphite">{item.summary}</p>
+          </div>
+          <div>
+            <p className="text-xs font-semibold text-aurora-ink">建議開場</p>
+            <p className="mt-2 text-sm leading-7 text-aurora-graphite">{item.sales_talking_points[0]}</p>
+          </div>
+          <div>
+            <p className="text-xs font-semibold text-aurora-ink">匹配原因</p>
+            <ul className="mt-2 space-y-1 text-sm leading-6 text-aurora-graphite">
+              {item.matchedReasons.map((reason) => (
+                <li key={reason}>- {reason}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </details>
     </article>
