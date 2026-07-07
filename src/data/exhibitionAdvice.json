@@ -1,0 +1,8 @@
+[
+  { "id": "ex-001", "condition_tags": ["健康辦公", "員工久坐不適", "職員區"], "title": "人體工學與站坐交替體驗", "advice": "建議優先體驗職員椅支撐性、操作直覺度與升降桌搭配情境，作為健康辦公需求討論基礎。", "related_solution_themes": ["健康辦公", "家具規劃"], "source_url": "https://www.aurora.com.tw/of/", "review_status": "sample_pending_review" },
+  { "id": "ex-002", "condition_tags": ["會議效率不佳", "科技辦公", "會議室"], "title": "混合會議與協作配置", "advice": "建議體驗不同會議桌型、視訊協作配置與線材管理方式，確認正式會議、小型討論與遠距協作的差異。", "related_solution_themes": ["高效辦公", "科技辦公"], "source_url": "https://www.aurora.com.tw/of/", "review_status": "sample_pending_review" },
+  { "id": "ex-003", "condition_tags": ["靈動辦公", "缺乏彈性座位", "混合辦公"], "title": "彈性座位與活動家具", "advice": "建議了解活動桌、共享座位、個人收納與快速切換配置，協助討論混合辦公導入條件。", "related_solution_themes": ["靈動辦公", "空間規劃"], "source_url": "https://www.aurora.com.tw/of/", "review_status": "sample_pending_review" },
+  { "id": "ex-004", "condition_tags": ["品牌形象升級", "接待區", "展示接待"], "title": "接待與品牌展示場景", "advice": "建議優先體驗接待、展示與洽談的連續場景，並與專人討論訪客第一印象與品牌訊息呈現。", "related_solution_themes": ["品牌形象升級", "展廳體驗"], "source_url": "https://aid.aurora.com.tw/", "review_status": "sample_pending_review" },
+  { "id": "ex-005", "condition_tags": ["永續辦公", "ESG採購", "舊家具汰換困難"], "title": "永續採購與生命週期討論", "advice": "建議優先了解家具維修延壽、回收再利用與循環服務可討論方向，後續仍需由專人依實際資料評估。", "related_solution_themes": ["永續辦公", "FaaS循環商模"], "source_url": "https://www.aurora.com.tw/of/", "review_status": "sample_pending_review" },
+  { "id": "ex-006", "condition_tags": ["專注", "缺乏專注空間", "靜音空間"], "title": "專注與降噪空間體驗", "advice": "建議比較專注工作站、屏風分區與靜音空間的使用情境，確認噪音、隱私與座位密度需求。", "related_solution_themes": ["高效辦公", "空間規劃"], "source_url": "https://aid.aurora.com.tw/", "review_status": "sample_pending_review" }
+]

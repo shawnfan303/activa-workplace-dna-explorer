@@ -1,0 +1,14 @@
+[
+  {
+    "name": "震旦家具官網",
+    "url": "https://www.aurora.com.tw/of/",
+    "allowed_content": ["公開產品分類", "公開案例", "公開新知文章", "健康辦公", "高效辦公", "靈動辦公", "科技辦公", "永續辦公", "展示中心與服務據點"],
+    "review_status": "sample_pending_review"
+  },
+  {
+    "name": "大震設計官網",
+    "url": "https://aid.aurora.com.tw/",
+    "allowed_content": ["公開案例", "室內設計服務", "家具規劃", "施工監造", "專案管理", "公開空間規劃資訊"],
+    "review_status": "sample_pending_review"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "aid-service-001",
+    "name": "Interior Design / 室內設計",
+    "description": "根據大震設計公開服務分類建立的示範資料。",
+    "suitable_scenarios": ["新總部", "辦公室搬遷", "品牌形象升級", "整體空間改造", "新辦公室規劃"],
+    "related_spaces": ["接待空間", "會議空間", "職員空間", "主管空間", "複合式辦公區"],
+    "related_solution_themes": ["靈動辦公", "健康辦公", "科技辦公", "永續辦公", "品牌形象升級"],
+    "related_products": ["主管桌", "職員椅", "會議洽談桌", "文件櫃"],
+    "recommendation_logic": "適合需要整體空間設計規劃、企業形象整合與辦公體驗升級的專案。",
+    "source_url": "https://aid.aurora.com.tw/",
+    "source_domain": "aid_aurora",
+    "source_type": "official_website",
+    "last_crawled": "2026-06-30",
+    "review_status": "sample_pending_review"
+  },
+  {
+    "id": "aid-service-002",
+    "name": "Furniture Design / 家具規劃",
+    "description": "示範資料，用於家具分類、工位、會議與收納配置方向。",
+    "suitable_scenarios": ["局部改造", "員工體驗改善", "會議空間升級", "展廳參觀前準備"],
+    "related_spaces": ["職員空間", "會議空間", "協作空間", "收納空間"],
+    "related_solution_themes": ["家具規劃", "健康辦公", "靈動辦公", "展廳體驗"],
+    "related_products": ["職員椅", "升降桌", "會議洽談桌", "文件櫃"],
+    "recommendation_logic": "適合已具備初步空間方向，需進一步討論產品分類、配置與使用情境的需求。",
+    "source_url": "https://aid.aurora.com.tw/",
+    "source_domain": "aid_aurora",
+    "source_type": "official_website",
+    "last_crawled": "2026-06-30",
+    "review_status": "sample_pending_review"
+  },
+  {
+    "id": "aid-service-003",
+    "name": "Fit Out / 施工監造",
+    "description": "示範資料，用於空間改造與落地執行階段的服務方向。",
+    "suitable_scenarios": ["辦公室搬遷", "舊辦公室翻新", "新總部", "局部改造"],
+    "related_spaces": ["接待空間", "職員空間", "會議空間", "複合式辦公區"],
+    "related_solution_themes": ["空間規劃", "品牌形象升級"],
+    "related_products": ["高隔間", "地毯", "系統工作站"],
+    "recommendation_logic": "適合進入實際改造、施工協調與現場落地階段的專案。",
+    "source_url": "https://aid.aurora.com.tw/",
+    "source_domain": "aid_aurora",
+    "source_type": "official_website",
+    "last_crawled": "2026-06-30",
+    "review_status": "sample_pending_review"
+  },
+  {
+    "id": "aid-service-004",
+    "name": "Project Management / 專案管理",
+    "description": "示範資料，用於多方協作、時程、品質與跨部門溝通需求。",
+    "suitable_scenarios": ["新總部", "辦公室搬遷", "新辦公室規劃", "品牌形象升級"],
+    "related_spaces": ["複合式辦公區", "職員空間", "接待空間", "會議空間"],
+    "related_solution_themes": ["空間規劃", "家具規劃", "品牌形象升級"],
+    "related_products": ["系統工作站", "會議洽談桌", "職員椅"],
+    "recommendation_logic": "適合需求範圍較廣、需整合家具、空間與跨單位執行流程的專案。",
+    "source_url": "https://aid.aurora.com.tw/",
+    "source_domain": "aid_aurora",
+    "source_type": "official_website",
+    "last_crawled": "2026-06-30",
+    "review_status": "sample_pending_review"
+  }
+]

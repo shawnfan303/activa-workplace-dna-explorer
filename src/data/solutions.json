@@ -1,0 +1,32 @@
+[
+  {
+    "id": "solution-001",
+    "name": "健康辦公",
+    "description": "示範資料，聚焦人體工學、姿勢變換與舒適工作體驗。",
+    "related_spaces": ["職員空間", "專注空間", "休憩空間"],
+    "related_products": ["職員椅", "升降桌", "靜音艙"],
+    "related_work_modes": ["專注", "放鬆"],
+    "pain_points": ["員工久坐不適", "員工不喜歡進辦公室", "缺乏專注空間"],
+    "talking_points": ["健康辦公可作為員工體驗與工作效率的討論入口。", "建議從人體工學、姿勢變換與專注環境開始盤點。"],
+    "source_url": "https://www.aurora.com.tw/of/",
+    "source_domain": "aurora_furniture",
+    "source_type": "official_website",
+    "last_crawled": "2026-06-30",
+    "review_status": "sample_pending_review"
+  },
+  {
+    "id": "solution-002",
+    "name": "靈動辦公",
+    "description": "示範資料，聚焦彈性配置、協作與多模式辦公場景。",
+    "related_spaces": ["協作空間", "開放辦公區", "複合式辦公區"],
+    "related_products": ["會議洽談桌", "活動式家具", "靜音艙"],
+    "related_work_modes": ["協作", "創意發想", "社交"],
+    "pain_points": ["跨部門協作不足", "缺乏彈性座位", "會議效率不佳"],
+    "talking_points": ["靈動辦公適合用於討論混合辦公與彈性空間配置。", "建議先釐清團隊一天中需要切換的工作模式。"],
+    "source_url": "https://aid.aurora.com.tw/",
+    "source_domain": "aid_aurora",
+    "source_type": "official_website",
+    "last_crawled": "2026-06-30",
+    "review_status": "sample_pending_review"
+  }
+]

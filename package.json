@@ -7,7 +7,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "ingest": "node scripts/ingestAuroraFurniture.ts && node scripts/ingestAID.ts",
+    "normalize": "node scripts/normalizePublicData.ts",
+    "validate-data": "node scripts/validatePublicData.ts"
   },
   "dependencies": {
     "html2canvas": "^1.4.1",

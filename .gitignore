@@ -1,6 +1,8 @@
 .next
 node_modules
 .pnpm-store
+.video-tools
+.tts-tools
 out
 dist
 *.log

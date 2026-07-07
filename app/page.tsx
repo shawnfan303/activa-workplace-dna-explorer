@@ -19,11 +19,17 @@ export default function HomePage() {
             透過簡短問卷判斷企業目前最需要強化的工作場域能力，並連結 ACTIVA 可支持的專注、協作、混合會議、健康體驗與品牌展示場景。
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/discovery-assistant" className="bg-aurora-red px-5 py-3 text-sm font-semibold text-white shadow-subtle transition hover:bg-red-800">
+              企業辦公需求探索器
+            </Link>
             <Link href="/quiz" className="bg-aurora-red px-5 py-3 text-sm font-semibold text-white shadow-subtle transition hover:bg-red-800">
               開始診斷
             </Link>
             <Link href="/case-match" className="border border-aurora-line px-5 py-3 text-sm font-semibold text-aurora-ink transition hover:border-aurora-red hover:text-aurora-red">
               公開案例匹配器
+            </Link>
+            <Link href="/product-scene-recommender" className="border border-aurora-line px-5 py-3 text-sm font-semibold text-aurora-ink transition hover:border-aurora-red hover:text-aurora-red">
+              產品場景推薦器
             </Link>
             <Link href="/scenes" className="border border-aurora-line px-5 py-3 text-sm font-semibold text-aurora-ink transition hover:border-aurora-red hover:text-aurora-red">
               查看場景資料

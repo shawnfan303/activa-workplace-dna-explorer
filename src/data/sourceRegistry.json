@@ -1,0 +1,18 @@
+[
+  {
+    "id": "source-001",
+    "name": "震旦家具官網",
+    "domain": "https://www.aurora.com.tw/of/",
+    "allowed": true,
+    "source_type": "official_website",
+    "usage": ["products", "scenes", "solutions", "cases", "faq"]
+  },
+  {
+    "id": "source-002",
+    "name": "大震設計官網",
+    "domain": "https://aid.aurora.com.tw/",
+    "allowed": true,
+    "source_type": "official_website",
+    "usage": ["design_services", "interior_projects", "furniture_projects", "solutions"]
+  }
+]

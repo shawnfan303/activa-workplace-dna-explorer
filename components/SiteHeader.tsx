@@ -6,6 +6,7 @@ import { assetPath } from "@/lib/assets";
 
 const navItems = [
   { href: "/", label: "首頁" },
+  { href: "/discovery-assistant", label: "需求探索器" },
   { href: "/quiz", label: "問卷" },
   { href: "/result", label: "結果" },
   { href: "/scenes", label: "場景資料" }
