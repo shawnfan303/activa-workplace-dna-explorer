@@ -19,6 +19,7 @@ import { StakeholderQuestionCard } from "@/src/components/StakeholderQuestionCar
 import { FooterNotice } from "@/src/components/FooterNotice";
 import { generateDiscoveryAxis, generateDiscoveryResult } from "@/src/lib/discoveryEngine";
 import { incrementBriefCounter, incrementLocalDisplayCount, readBriefCounters, readLocalDisplayCount } from "@/src/lib/counterEngine";
+import { assetPath } from "@/lib/assets";
 import type { DiscoveryField, DiscoveryInput, DiscoveryQuestion, ExhibitionAdvice, FollowUpLogic, SolutionMapping, StakeholderPlaybook } from "@/src/types/discovery";
 
 const initialInput: DiscoveryInput = {
@@ -83,22 +84,23 @@ export default function DiscoveryAssistantPage() {
     <div className="bg-white">
       <section className="border-b border-aurora-line bg-[linear-gradient(180deg,#ffffff_0%,#f7f7f8_100%)]">
         <div className="aurora-container py-14 md:py-18">
-          <div className="grid gap-8 lg:grid-cols-[1fr_240px] lg:items-start">
+          <div className="grid gap-8 lg:grid-cols-[1fr_260px] lg:items-start">
             <div className="max-w-4xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-aurora-red">Public data discovery assistant</p>
-              <h1 className="mt-4 max-w-5xl text-4xl font-semibold leading-tight text-aurora-ink md:text-6xl">AURORA Discovery Assistant</h1>
-              <p className="mt-3 text-2xl font-semibold text-aurora-ink">企業辦公需求探索器</p>
-              <p className="mt-5 max-w-3xl text-lg leading-8 text-aurora-graphite">以公開資料與顧問式問診邏輯，協助營業快速完成拜訪前準備。工具不要求姓名、公司名稱、電話、Email、地址、預算或任何可識別資訊。</p>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="flex flex-wrap items-center gap-4">
+                <img className="h-10 w-auto md:h-12" src={`${assetPath("/images/aurora-furniture-logo.png")}?v=transparent`} alt="震旦家具 AURORA Furniture" />
+                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-aurora-red">Public data discovery assistant</p>
+              </div>
+              <h1 className="mt-8 max-w-5xl text-5xl font-semibold leading-[0.98] text-aurora-ink md:text-7xl">AURORA Discovery Assistant</h1>
+              <p className="mt-8 max-w-4xl text-xl leading-9 text-aurora-graphite">
+                以公開資料與顧問式問診邏輯，協助營業快速完成拜訪前準備。正式流程分為需求條件、問診建議與拜訪摘要三段，協助團隊把客戶討論從家具品項提升到工作場域策略。
+              </p>
+              <div className="mt-10 flex flex-wrap gap-3">
                 <button type="button" onClick={() => goToStep("input")} className="bg-aurora-red px-5 py-3 text-sm font-semibold text-white shadow-subtle transition hover:bg-red-800">開始需求探索</button>
-                <a href="#public-data-notice" className="border border-aurora-line bg-white px-5 py-3 text-sm font-semibold text-aurora-ink transition hover:border-aurora-red hover:text-aurora-red">查看公開資料邊界</a>
               </div>
             </div>
-            <div className="flex lg:justify-end lg:pt-[6.25rem]">
-              <div className="w-full border border-aurora-line bg-white p-5 shadow-subtle lg:w-[220px]">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-aurora-red">Local counter</p>
-                <p className="mt-2 text-4xl font-semibold tabular-nums text-aurora-ink">{result.counters.localDisplayCount.toLocaleString("zh-TW")}</p>
-                <p className="mt-2 text-xs leading-5 text-aurora-graphite">起始值 5889，僅限本機計數。</p>
+            <div className="flex lg:justify-end lg:pt-[6.5rem]">
+              <div className="w-fit border border-aurora-line bg-white px-6 py-3 shadow-subtle">
+                <p className="text-base font-semibold tabular-nums text-aurora-ink">已使用：{result.counters.localDisplayCount.toLocaleString("zh-TW")}人次</p>
               </div>
             </div>
           </div>
