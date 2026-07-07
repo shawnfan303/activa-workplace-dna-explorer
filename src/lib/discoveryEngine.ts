@@ -106,7 +106,7 @@ export function generateOpeningScript(input: DiscoveryInput) {
 export function buildDiscoveryMarkdown(input: DiscoveryInput, questions: DiscoveryQuestion[], stakeholderQuestions: ReturnType<typeof generateStakeholderQuestions>, followUps: FollowUpLogic[], mappedSolutions: SolutionMapping[], exhibitionAdvice: string[], counters: DiscoveryCounters) {
   const solutionGroups = Object.entries(counters.solutions).filter(([, count]) => count > 0);
 
-  return `# Aurora Discovery Assistant｜企業辦公需求探索摘要
+  return `# AURORA Discovery Assistant｜企業辦公需求探索摘要
 
 ## 一、需求條件摘要
 

@@ -69,9 +69,9 @@ The first version uses local scene data at `data/workplace-scenes.json`. Questio
 - 不自動生成未公開的成果數據、減碳量、財務效益或投資報酬率。
 - 正式規劃仍需由震旦家具／大震設計專人依實際需求評估。
 
-## Aurora Product & Scene Recommender
+## AURORA Product & Scene Recommender
 
-此專案新增 `Aurora Product & Scene Recommender｜震旦家具產品風格／場景推薦器`，入口為：
+此專案新增 `AURORA Product & Scene Recommender｜震旦家具產品風格／場景推薦器`，入口為：
 
 ```text
 /product-scene-recommender
@@ -232,7 +232,7 @@ pnpm run build
 
 ## 未來擴充方向
 
-1. 與 Aurora Case Match Engine 串接，讓產品推薦可同時推薦公開案例。
+1. 與 AURORA Case Match Engine 串接，讓產品推薦可同時推薦公開案例。
 2. 與 Workplace DNA 工具串接，將 DNA 測驗結果自動帶入產品與場景推薦。
 3. 增加展廳動線推薦器。
 4. 增加 ESG 採購問答模組。
@@ -263,9 +263,9 @@ Regenerate optimized scene images and preview HTML:
 python scripts/optimize_scene_images.py
 ```
 
-## Aurora Discovery Assistant
+## AURORA Discovery Assistant
 
-此專案新增 `Aurora Discovery Assistant｜企業辦公需求探索器`，入口為：
+此專案新增 `AURORA Discovery Assistant｜企業辦公需求探索器`，入口為：
 
 ```text
 /discovery-assistant
