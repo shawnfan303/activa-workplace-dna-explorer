@@ -8,10 +8,12 @@ import { CaseResultCard } from "@/components/CaseResultCard";
 import { PublicDataNotice } from "@/components/PublicDataNotice";
 import { SelectedCaseBrief } from "@/components/SelectedCaseBrief";
 import { StakeholderTalkingPoints } from "@/components/StakeholderTalkingPoints";
+import { UsageCounter } from "@/components/UsageCounter";
 import { assetPath } from "@/lib/assets";
 import type { CaseItem, CaseMatchInput } from "@/lib/caseTypes";
 import { generateCaseBriefModel } from "@/lib/briefGenerator";
 import { matchCases } from "@/lib/matching";
+import { getCaseMatchFallbackUsageCount, getCaseMatchUsageCount, incrementCaseMatchUsageCount } from "@/lib/usageCounter";
 
 const initialInput: CaseMatchInput = {
   industry: ["科技業"],
@@ -24,12 +26,14 @@ const initialInput: CaseMatchInput = {
 };
 
 const storageKey = "aurora-case-match-input";
+const usageSessionKey = "aurora-case-match-usage-recorded";
 type FlowStep = "input" | "results" | "brief";
 
 export default function CaseMatchPage() {
   const [input, setInput] = useState<CaseMatchInput>(initialInput);
   const [selectedCaseIds, setSelectedCaseIds] = useState<string[]>([]);
   const [flowStep, setFlowStep] = useState<FlowStep>("input");
+  const [usageCount, setUsageCount] = useState(getCaseMatchFallbackUsageCount());
   const cases = casesData as CaseItem[];
 
   useEffect(() => {
@@ -37,6 +41,10 @@ export default function CaseMatchPage() {
     if (stored) {
       setInput(JSON.parse(stored) as CaseMatchInput);
     }
+
+    getCaseMatchUsageCount()
+      .then(setUsageCount)
+      .catch(() => setUsageCount(getCaseMatchFallbackUsageCount()));
   }, []);
 
   useEffect(() => {
@@ -67,6 +75,27 @@ export default function CaseMatchPage() {
     window.setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 0);
   }
 
+  function recordUsageOnce() {
+    if (window.sessionStorage.getItem(usageSessionKey)) {
+      return;
+    }
+
+    window.sessionStorage.setItem(usageSessionKey, "true");
+    incrementCaseMatchUsageCount()
+      .then(setUsageCount)
+      .catch(() => setUsageCount((current) => current));
+  }
+
+  function startCaseMatch() {
+    recordUsageOnce();
+    goToStep("input");
+  }
+
+  function generateResults() {
+    recordUsageOnce();
+    goToStep("results");
+  }
+
   const stepItems = [
     { id: "input", label: "1 需求條件" },
     { id: "results", label: "2 推薦案例" },
@@ -77,19 +106,24 @@ export default function CaseMatchPage() {
     <main>
       <section className="border-b border-aurora-line bg-aurora-soft">
         <div className="aurora-container py-14 md:py-18">
-          <div className="max-w-4xl">
-            <div className="flex flex-wrap items-center gap-4">
-              <img className="h-10 w-auto md:h-12" src={`${assetPath("/images/aurora-furniture-logo.png")}?v=transparent`} alt="震旦家具 AURORA Furniture" />
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-aurora-red">Public case matching tool</p>
+          <div className="grid gap-8 lg:grid-cols-[1fr_220px] lg:items-start">
+            <div className="max-w-4xl">
+              <div className="flex flex-wrap items-center gap-4">
+                <img className="h-10 w-auto md:h-12" src={`${assetPath("/images/aurora-furniture-logo.png")}?v=transparent`} alt="震旦家具 AURORA Furniture" />
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-aurora-red">Public case matching tool</p>
+              </div>
+              <h1 className="mt-4 text-4xl font-semibold leading-tight text-aurora-ink md:text-6xl">AURORA Case Match Engine</h1>
+              <p className="mt-5 max-w-3xl text-lg leading-8 text-aurora-graphite">
+                用公開案例，快速找到最適合企業客戶的辦公空間參考。正式流程分為需求條件、推薦案例與案例摘要三段，協助營業拜訪前快速建立討論方向。
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <button type="button" onClick={startCaseMatch} className="bg-aurora-red px-5 py-3 text-sm font-semibold text-white shadow-subtle transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-red-800 hover:shadow-[0_18px_36px_rgba(200,16,46,0.18)]">
+                  開始案例匹配
+                </button>
+              </div>
             </div>
-            <h1 className="mt-4 text-4xl font-semibold leading-tight text-aurora-ink md:text-6xl">AURORA Case Match Engine</h1>
-            <p className="mt-5 max-w-3xl text-lg leading-8 text-aurora-graphite">
-              用公開案例，快速找到最適合企業客戶的辦公空間參考。正式流程分為需求條件、推薦案例與案例摘要三段，協助營業拜訪前快速建立討論方向。
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <button type="button" onClick={() => goToStep("input")} className="bg-aurora-red px-5 py-3 text-sm font-semibold text-white shadow-subtle transition hover:bg-red-800">
-                開始案例匹配
-              </button>
+            <div className="flex lg:justify-end lg:pt-[6.25rem]">
+              <UsageCounter count={usageCount} variant="compact" />
             </div>
           </div>
         </div>
@@ -120,7 +154,7 @@ export default function CaseMatchPage() {
           <div className="space-y-6">
             <CaseMatchForm tags={tagsData} value={input} onChange={setInput} />
             <div className="flex justify-end">
-              <button type="button" onClick={() => goToStep("results")} className="bg-aurora-red px-6 py-3 text-sm font-semibold text-white shadow-subtle transition hover:bg-red-800">
+              <button type="button" onClick={generateResults} className="bg-aurora-red px-6 py-3 text-sm font-semibold text-white shadow-subtle transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-red-800 hover:shadow-[0_18px_36px_rgba(200,16,46,0.18)]">
                 產生推薦案例
               </button>
             </div>
