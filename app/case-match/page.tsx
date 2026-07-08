@@ -112,23 +112,19 @@ export default function CaseMatchPage() {
     <main>
       <section className="border-b border-aurora-line bg-aurora-soft">
         <div className="aurora-container py-14 md:py-18">
-          <div className="grid gap-8 lg:grid-cols-[1fr_220px] lg:items-start">
-            <div className="max-w-4xl">
-              <div className="flex flex-wrap items-center gap-4">
-                <img className="h-10 w-auto md:h-12" src={`${assetPath("/images/aurora-furniture-logo.png")}?v=transparent`} alt="震旦家具 AURORA Furniture" />
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-aurora-red">Public case matching tool</p>
-              </div>
-              <h1 className="mt-4 text-4xl font-semibold leading-tight text-aurora-ink md:text-6xl">AURORA Case Match Engine</h1>
-              <p className="mt-5 max-w-3xl text-lg leading-8 text-aurora-graphite">
-                用公開案例，快速找到最適合企業客戶的辦公空間參考。正式流程分為需求條件、推薦案例與案例摘要三段，協助營業拜訪前快速建立討論方向。
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <button type="button" onClick={startCaseMatch} className="bg-aurora-red px-5 py-3 text-sm font-semibold text-white shadow-subtle transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-red-800 hover:shadow-[0_18px_36px_rgba(200,16,46,0.18)]">
-                  開始案例匹配
-                </button>
-              </div>
+          <div>
+            <div className="flex flex-wrap items-center gap-4">
+              <img className="h-9 w-auto md:h-10" src={`${assetPath("/images/aurora-furniture-logo.png")}?v=transparent`} alt="震旦家具 AURORA Furniture" />
+              <p className="text-xl font-semibold tracking-[0.16em] text-aurora-red md:text-2xl">顧客經營工具箱</p>
             </div>
-            <div className="flex lg:justify-end lg:pt-[6.25rem]">
+            <h1 className="mt-6 whitespace-nowrap text-[clamp(2.75rem,5.4vw,4.75rem)] font-semibold leading-none text-aurora-ink">AURORA Case Match Engine</h1>
+            <p className="mt-5 max-w-none text-base leading-7 text-aurora-graphite md:whitespace-nowrap md:text-lg">
+              用公開案例，快速找到最適合企業客戶的辦公空間參考。正式流程分為需求條件、推薦案例與案例摘要三段，協助營業拜訪前快速建立討論方向。
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <button type="button" onClick={startCaseMatch} className="bg-aurora-red px-5 py-3 text-sm font-semibold text-white shadow-subtle transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-red-800 hover:shadow-[0_18px_36px_rgba(200,16,46,0.18)]">
+                開始案例匹配
+              </button>
               <UsageCounter count={usageCount} variant="compact" />
             </div>
           </div>

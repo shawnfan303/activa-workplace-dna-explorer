@@ -14,7 +14,7 @@ const navItems = [
 export function SiteHeader() {
   const pathname = usePathname();
 
-  if (pathname === "/") {
+  if (pathname === "/" || pathname.startsWith("/case-match") || pathname.startsWith("/discovery-assistant")) {
     return null;
   }
 

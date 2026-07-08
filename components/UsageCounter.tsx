@@ -38,7 +38,7 @@ export function UsageCounter({ count, variant = "default" }: UsageCounterProps) 
 
   if (variant === "compact") {
     return (
-      <div className="inline-flex min-w-[156px] items-center justify-center border border-aurora-line bg-white px-4 py-2 text-sm font-semibold tabular-nums text-aurora-ink shadow-[0_10px_24px_rgba(32,33,36,0.05)]">
+      <div className="inline-flex min-h-[44px] min-w-[168px] items-center justify-center border border-aurora-line bg-white px-5 py-3 text-sm font-semibold tabular-nums text-aurora-ink shadow-[0_10px_24px_rgba(32,33,36,0.05)]">
         已使用：{displayCount.toLocaleString("zh-TW")}人次
       </div>
     );
