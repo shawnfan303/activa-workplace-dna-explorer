@@ -50,18 +50,17 @@ export default function HomePage() {
           <UsageCounter variant="compact" />
         </header>
 
-        <div className="grid gap-8 py-9 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-end">
+        <div className="py-8">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-aurora-red">營業案件前期經營</p>
-            <h1 className="mt-4 max-w-5xl text-4xl font-semibold leading-tight text-aurora-ink md:text-6xl">
-              營業案件前期經營工具箱
+            <h1 className="whitespace-nowrap text-[clamp(2.35rem,5.8vw,4.9rem)] font-semibold leading-none text-aurora-ink">
+              顧客經營工具箱
             </h1>
-            <p className="mt-5 max-w-4xl text-lg leading-8 text-aurora-graphite">
+            <p className="mt-6 whitespace-nowrap text-[clamp(0.95rem,1.7vw,1.25rem)] leading-8 text-aurora-graphite">
               營業可依照目前案件開發進度與需求，從下方三個應用工具中挑選最適合的工具，逐步完成需求釐清、工作場景診斷與公開案例佐證。
             </p>
           </div>
 
-          <div className="border-l-4 border-aurora-red bg-aurora-soft p-5">
+          <div className="mt-7 border-l-4 border-aurora-red bg-aurora-soft p-5">
             <p className="text-sm font-semibold text-aurora-red">建議使用流程</p>
             <p className="mt-3 text-2xl font-semibold leading-9 text-aurora-ink">
               Discovery Assistant → Workplace DNA → Case Match Engine
@@ -69,41 +68,39 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-3">
+        <div className="grid gap-4">
           {tools.map((tool) => (
-            <article key={tool.name} className="flex min-h-[520px] flex-col border border-aurora-line bg-white p-6 shadow-subtle">
-              <div className="flex items-start justify-between gap-4">
+            <article key={tool.name} className="grid gap-6 border border-aurora-line bg-white p-5 shadow-subtle lg:grid-cols-[260px_minmax(0,1fr)_320px_210px] lg:items-stretch">
+              <div className="border-b border-aurora-line pb-5 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-6">
                 <div>
                   <p className="text-sm font-semibold tracking-[0.18em] text-aurora-red">STEP {tool.step}</p>
                   <h2 className="mt-3 text-2xl font-semibold text-aurora-ink">{tool.name}</h2>
                 </div>
-                <span className="shrink-0 border border-aurora-line px-3 py-1 text-sm font-semibold text-aurora-graphite">{tool.phase}</span>
+                <span className="mt-5 inline-flex border border-aurora-line px-3 py-1 text-sm font-semibold text-aurora-graphite">{tool.phase}</span>
               </div>
 
-              <div className="mt-6 border-y border-aurora-line py-5">
+              <div className="lg:border-r lg:border-aurora-line lg:pr-6">
                 <p className="text-sm font-semibold text-aurora-red">目前如果你是...</p>
                 <p className="mt-2 text-lg font-semibold leading-8 text-aurora-ink">{tool.need}</p>
-              </div>
-
-              <div className="mt-5 space-y-5">
-                <div>
+                <div className="mt-5 border-t border-aurora-line pt-5">
                   <p className="text-sm font-semibold text-aurora-red">在流程中的角色</p>
                   <p className="mt-2 text-base leading-7 text-aurora-ink">{tool.role}</p>
                 </div>
-                <p className="text-base leading-7 text-aurora-graphite">{tool.description}</p>
-                <div>
-                  <p className="text-sm font-semibold text-aurora-red">可以取得的輸出</p>
-                  <div className="mt-3 grid gap-2">
-                    {tool.outputs.map((output) => (
-                      <span key={output} className="border border-aurora-line bg-aurora-soft px-3 py-2 text-sm font-semibold text-aurora-ink">
-                        {output}
-                      </span>
-                    ))}
-                  </div>
+                <p className="mt-5 text-base leading-7 text-aurora-graphite">{tool.description}</p>
+              </div>
+
+              <div className="lg:border-r lg:border-aurora-line lg:pr-6">
+                <p className="text-sm font-semibold text-aurora-red">可以取得的輸出</p>
+                <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-1">
+                  {tool.outputs.map((output) => (
+                    <span key={output} className="border border-aurora-line bg-aurora-soft px-3 py-2 text-sm font-semibold text-aurora-ink">
+                      {output}
+                    </span>
+                  ))}
                 </div>
               </div>
 
-              <div className="mt-auto pt-7">
+              <div className="flex items-end">
                 <Link href={tool.href} className="inline-flex w-full items-center justify-center bg-aurora-red px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-800">
                   {tool.cta}
                 </Link>
