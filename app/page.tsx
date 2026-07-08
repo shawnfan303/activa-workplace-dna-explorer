@@ -70,7 +70,7 @@ export default function HomePage() {
 
         <div className="grid gap-4">
           {tools.map((tool) => (
-            <article key={tool.name} className="grid gap-5 border border-aurora-line bg-white p-5 shadow-subtle lg:grid-cols-[minmax(0,1fr)_190px] lg:items-stretch">
+            <article key={tool.name} className="grid gap-5 border border-aurora-line bg-white p-5 shadow-subtle lg:grid-cols-[minmax(0,1fr)_230px] lg:items-stretch">
               <div className="grid gap-4">
                 <div className="grid gap-3 border-b border-aurora-line pb-4 lg:grid-cols-[190px_minmax(0,1fr)] lg:items-center">
                   <p className="text-sm font-semibold tracking-[0.18em] text-aurora-red">STEP {tool.step}</p>
@@ -106,7 +106,7 @@ export default function HomePage() {
               </div>
 
               <div className="flex items-stretch lg:justify-end">
-                <Link href={tool.href} className="inline-flex min-h-28 w-full items-center justify-center bg-aurora-red px-5 py-4 text-center text-base font-semibold leading-6 text-white transition hover:bg-red-800 lg:min-h-full lg:w-44">
+                <Link href={tool.href} className="inline-flex min-h-28 w-full items-center justify-center whitespace-nowrap bg-aurora-red px-5 py-4 text-center text-sm font-semibold leading-6 text-white transition hover:bg-red-800 lg:min-h-full lg:w-56">
                   {tool.cta}
                 </Link>
               </div>
