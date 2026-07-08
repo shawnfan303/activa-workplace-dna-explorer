@@ -90,13 +90,13 @@ export default function DiscoveryAssistantPage() {
               <p className="text-2xl font-semibold tracking-[0.16em] text-aurora-red md:text-3xl">顧客經營工具箱</p>
             </div>
             <h1 className="mt-8 text-5xl font-semibold leading-none text-aurora-ink md:text-7xl xl:whitespace-nowrap">AURORA Discovery Assistant</h1>
-            <p className="mt-8 max-w-none text-lg leading-8 text-aurora-graphite md:text-xl xl:whitespace-nowrap">
+            <p className="mt-8 max-w-[1120px] text-base leading-8 text-aurora-graphite md:text-lg">
               以公開資料與顧問式問診邏輯，協助營業快速完成拜訪前準備。正式流程分為需求條件、問診建議與拜訪摘要三段，協助團隊把客戶討論從家具品項提升到工作場域策略。
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <button type="button" onClick={() => goToStep("input")} className="bg-aurora-red px-6 py-4 text-base font-semibold text-white shadow-subtle transition hover:bg-red-800">開始需求探索</button>
-              <div className="inline-flex min-h-[58px] min-w-[232px] items-center justify-center border border-aurora-line bg-white px-6 py-3 shadow-subtle">
-                <p className="text-lg font-semibold tabular-nums text-aurora-ink">已使用：{result.counters.localDisplayCount.toLocaleString("zh-TW")}人次</p>
+              <button type="button" onClick={() => goToStep("input")} className="min-h-[56px] w-[155px] bg-aurora-red px-5 py-3 text-sm font-semibold text-white shadow-subtle transition hover:bg-red-800">開始需求探索</button>
+              <div className="inline-flex min-h-[56px] min-w-[210px] items-center justify-center border border-aurora-line bg-white px-5 py-3 shadow-subtle">
+                <p className="text-base font-semibold tabular-nums text-aurora-ink">已使用：{result.counters.localDisplayCount.toLocaleString("zh-TW")}人次</p>
               </div>
             </div>
           </div>
