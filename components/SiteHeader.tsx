@@ -6,6 +6,7 @@ import { assetPath } from "@/lib/assets";
 
 const navItems = [
   { href: "/", label: "首頁" },
+  { href: "/customer-toolbox", label: "顧客經營工具箱" },
   { href: "/quiz", label: "Workplace DNA" },
   { href: "/result", label: "結果" },
   { href: "/scenes", label: "場景資料" }
@@ -14,7 +15,7 @@ const navItems = [
 export function SiteHeader() {
   const pathname = usePathname();
 
-  if (pathname === "/") {
+  if (pathname === "/" || pathname.startsWith("/customer-toolbox")) {
     return null;
   }
 
