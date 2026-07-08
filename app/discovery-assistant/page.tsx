@@ -83,24 +83,20 @@ export default function DiscoveryAssistantPage() {
   return (
     <div className="bg-white">
       <section className="border-b border-aurora-line bg-[linear-gradient(180deg,#ffffff_0%,#f7f7f8_100%)]">
-        <div className="aurora-container py-14 md:py-18">
-          <div className="grid gap-8 lg:grid-cols-[1fr_260px] lg:items-start">
-            <div className="max-w-4xl">
-              <div className="flex flex-wrap items-center gap-4">
-                <img className="h-10 w-auto md:h-12" src={`${assetPath("/images/aurora-furniture-logo.png")}?v=transparent`} alt="震旦家具 AURORA Furniture" />
-                <p className="text-sm font-semibold uppercase tracking-[0.22em] text-aurora-red">Public data discovery assistant</p>
-              </div>
-              <h1 className="mt-8 max-w-5xl text-5xl font-semibold leading-[0.98] text-aurora-ink md:text-7xl">AURORA Discovery Assistant</h1>
-              <p className="mt-8 max-w-4xl text-xl leading-9 text-aurora-graphite">
-                以公開資料與顧問式問診邏輯，協助營業快速完成拜訪前準備。正式流程分為需求條件、問診建議與拜訪摘要三段，協助團隊把客戶討論從家具品項提升到工作場域策略。
-              </p>
-              <div className="mt-10 flex flex-wrap gap-3">
-                <button type="button" onClick={() => goToStep("input")} className="bg-aurora-red px-5 py-3 text-sm font-semibold text-white shadow-subtle transition hover:bg-red-800">開始需求探索</button>
-              </div>
+        <div className="aurora-container py-12 md:py-14">
+          <div>
+            <div className="flex flex-wrap items-center gap-5">
+              <img className="h-9 w-auto md:h-10" src={`${assetPath("/images/aurora-furniture-logo.png")}?v=transparent`} alt="震旦家具 AURORA Furniture" />
+              <p className="text-2xl font-semibold tracking-[0.16em] text-aurora-red md:text-3xl">顧客經營工具箱</p>
             </div>
-            <div className="flex lg:justify-end lg:pt-[6.5rem]">
-              <div className="w-fit border border-aurora-line bg-white px-6 py-3 shadow-subtle">
-                <p className="text-base font-semibold tabular-nums text-aurora-ink">已使用：{result.counters.localDisplayCount.toLocaleString("zh-TW")}人次</p>
+            <h1 className="mt-8 text-5xl font-semibold leading-none text-aurora-ink md:text-7xl xl:whitespace-nowrap">AURORA Discovery Assistant</h1>
+            <p className="mt-8 max-w-none text-lg leading-8 text-aurora-graphite md:text-xl xl:whitespace-nowrap">
+              以公開資料與顧問式問診邏輯，協助營業快速完成拜訪前準備。正式流程分為需求條件、問診建議與拜訪摘要三段，協助團隊把客戶討論從家具品項提升到工作場域策略。
+            </p>
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <button type="button" onClick={() => goToStep("input")} className="bg-aurora-red px-6 py-4 text-base font-semibold text-white shadow-subtle transition hover:bg-red-800">開始需求探索</button>
+              <div className="inline-flex min-h-[58px] min-w-[232px] items-center justify-center border border-aurora-line bg-white px-6 py-3 shadow-subtle">
+                <p className="text-lg font-semibold tabular-nums text-aurora-ink">已使用：{result.counters.localDisplayCount.toLocaleString("zh-TW")}人次</p>
               </div>
             </div>
           </div>
