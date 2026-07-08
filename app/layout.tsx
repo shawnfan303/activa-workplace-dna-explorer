@@ -3,8 +3,8 @@ import { SiteHeader } from "@/components/SiteHeader";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ACTIVA Workplace DNA Explorer",
-  description: "透過 Workplace DNA 問卷診斷企業工作場域需求，推薦 ACTIVA 辦公場景卡。"
+  title: "營業案件前期經營工具箱",
+  description: "讓營業依照案件前期開發進度，挑選 Discovery Assistant、Workplace DNA 與 Case Match Engine。"
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
