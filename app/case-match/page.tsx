@@ -111,7 +111,7 @@ export default function CaseMatchPage() {
   return (
     <main>
       <section className="border-b border-aurora-line bg-aurora-soft">
-        <div className="aurora-container py-14 md:py-18">
+        <div className="aurora-container pb-20 pt-14 md:pb-24 md:pt-18">
           <div>
             <div className="flex flex-wrap items-center gap-4">
               <img className="h-9 w-auto md:h-10" src={`${assetPath("/images/aurora-furniture-logo.png")}?v=transparent`} alt="震旦家具 AURORA Furniture" />
