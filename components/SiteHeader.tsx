@@ -28,17 +28,17 @@ export function SiteHeader() {
 
   return (
     <header className="border-b border-aurora-line bg-white">
-      <nav className="aurora-container flex min-h-20 items-center justify-between gap-6">
-        <Link href="/customer-toolbox" className="flex items-center gap-5 font-bold tracking-wide text-aurora-ink">
-          <img className="h-16 w-auto md:h-20" src={`${assetPath("/images/aurora-furniture-logo.png")}?v=transparent`} alt="震旦家具 AURORA Furniture" />
-          <span className="hidden text-sm uppercase tracking-[0.18em] text-aurora-red sm:inline md:text-base">Sales development toolbox</span>
+      <nav className="aurora-container flex min-h-16 items-center justify-between gap-4">
+        <Link href="/customer-toolbox" className="flex flex-none items-center gap-3 font-bold text-aurora-ink">
+          <img className="h-10 w-auto md:h-12" src={`${assetPath("/images/aurora-furniture-logo.png")}?v=transparent`} alt="震旦家具 AURORA Furniture" />
+          <span className="hidden whitespace-nowrap text-[13px] uppercase tracking-[0.12em] text-aurora-red sm:inline md:text-sm">Sales development toolbox</span>
         </Link>
-        <div className="flex flex-wrap items-center justify-end gap-2 text-sm text-aurora-graphite">
+        <div className="flex flex-nowrap items-center justify-end gap-1 text-sm text-aurora-graphite">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`px-3 py-2 font-semibold transition hover:text-aurora-red ${isActive(item.href) ? "text-aurora-red" : ""}`}
+              className={`whitespace-nowrap px-2.5 py-2 font-semibold transition hover:text-aurora-red ${isActive(item.href) ? "text-aurora-red" : ""}`}
             >
               {item.label}
             </Link>
