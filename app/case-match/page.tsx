@@ -9,7 +9,6 @@ import { PublicDataNotice } from "@/components/PublicDataNotice";
 import { SelectedCaseBrief } from "@/components/SelectedCaseBrief";
 import { StakeholderTalkingPoints } from "@/components/StakeholderTalkingPoints";
 import { UsageCounter } from "@/components/UsageCounter";
-import { assetPath } from "@/lib/assets";
 import type { CaseItem, CaseMatchInput } from "@/lib/caseTypes";
 import { generateCaseBriefModel } from "@/lib/briefGenerator";
 import { matchCases } from "@/lib/matching";
@@ -113,11 +112,7 @@ export default function CaseMatchPage() {
       <section className="border-b border-aurora-line bg-aurora-soft">
         <div className="aurora-container pb-20 pt-14 md:pb-24 md:pt-18">
           <div>
-            <div className="flex flex-wrap items-center gap-4">
-              <img className="h-9 w-auto md:h-10" src={`${assetPath("/images/aurora-furniture-logo.png")}?v=transparent`} alt="震旦家具 AURORA Furniture" />
-              <p className="text-xl font-semibold tracking-[0.16em] text-aurora-red md:text-2xl">顧客經營工具箱</p>
-            </div>
-            <h1 className="mt-6 whitespace-nowrap text-[clamp(2.75rem,5.4vw,4.75rem)] font-semibold leading-none text-aurora-ink">AURORA Case Match Engine</h1>
+            <h1 className="whitespace-nowrap text-[clamp(2.75rem,5.4vw,4.75rem)] font-semibold leading-none text-aurora-ink">AURORA Case Match Engine</h1>
             <p className="mt-5 max-w-none text-base leading-7 text-aurora-graphite md:whitespace-nowrap md:text-lg">
               用公開案例，快速找到最適合企業客戶的辦公空間參考。正式流程分為需求條件、推薦案例與案例摘要三段，協助營業拜訪前快速建立討論方向。
             </p>

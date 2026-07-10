@@ -31,7 +31,10 @@ export function SiteHeader() {
       <nav className="aurora-container flex min-h-20 items-center justify-between gap-6">
         <Link href="/customer-toolbox" className="flex items-center gap-4 text-sm font-bold tracking-wide text-aurora-ink">
           <img className="h-14 w-auto" src={`${assetPath("/images/aurora-furniture-logo.png")}?v=transparent`} alt="震旦家具 AURORA Furniture" />
-          <span className="hidden sm:inline">震旦家具 AURORA Furniture</span>
+          <span className="hidden leading-tight sm:flex sm:flex-col">
+            <span>震旦家具 AURORA Furniture</span>
+            <span className="text-xs uppercase tracking-[0.18em] text-aurora-red">Sales development toolbox</span>
+          </span>
         </Link>
         <div className="flex flex-wrap items-center justify-end gap-2 text-sm text-aurora-graphite">
           {navItems.map((item) => (

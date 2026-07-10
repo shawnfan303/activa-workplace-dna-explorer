@@ -19,7 +19,6 @@ import { StakeholderQuestionCard } from "@/src/components/StakeholderQuestionCar
 import { FooterNotice } from "@/src/components/FooterNotice";
 import { generateDiscoveryAxis, generateDiscoveryResult } from "@/src/lib/discoveryEngine";
 import { incrementBriefCounter, incrementLocalDisplayCount, readBriefCounters, readLocalDisplayCount } from "@/src/lib/counterEngine";
-import { assetPath } from "@/lib/assets";
 import type { DiscoveryField, DiscoveryInput, DiscoveryQuestion, ExhibitionAdvice, FollowUpLogic, SolutionMapping, StakeholderPlaybook } from "@/src/types/discovery";
 
 const initialInput: DiscoveryInput = {
@@ -85,11 +84,7 @@ export default function DiscoveryAssistantPage() {
       <section className="border-b border-aurora-line bg-[linear-gradient(180deg,#ffffff_0%,#f7f7f8_100%)]">
         <div className="aurora-container py-12 md:py-14">
           <div>
-            <div className="flex flex-wrap items-center gap-5">
-              <img className="h-9 w-auto md:h-10" src={`${assetPath("/images/aurora-furniture-logo.png")}?v=transparent`} alt="震旦家具 AURORA Furniture" />
-              <p className="text-2xl font-semibold tracking-[0.16em] text-aurora-red md:text-3xl">顧客經營工具箱</p>
-            </div>
-            <h1 className="mt-8 text-5xl font-semibold leading-none text-aurora-ink md:text-7xl xl:whitespace-nowrap">AURORA Discovery Assistant</h1>
+            <h1 className="text-5xl font-semibold leading-none text-aurora-ink md:text-7xl xl:whitespace-nowrap">AURORA Discovery Assistant</h1>
             <p className="mt-8 max-w-[1120px] text-base leading-8 text-aurora-graphite md:text-lg">
               以公開資料與顧問式問診邏輯，協助營業快速完成拜訪前準備。正式流程分為需求條件、問診建議與拜訪摘要三段，協助團隊把客戶討論從家具品項提升到工作場域策略。
             </p>

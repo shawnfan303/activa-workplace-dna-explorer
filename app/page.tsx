@@ -1,17 +1,11 @@
 import Link from "next/link";
 import { UsageCounter } from "@/components/UsageCounter";
-import { assetPath } from "@/lib/assets";
 
 export default function HomePage() {
   return (
     <section className="min-h-[calc(100vh-1px)] border-b border-aurora-line bg-[#f7f7f8] px-5 py-4">
       <div className="mx-auto max-w-[1440px]">
-        <div className="flex items-center gap-6">
-          <img className="h-12 w-auto" src={`${assetPath("/images/aurora-furniture-logo.png")}?v=transparent`} alt="震旦家具 AURORA Furniture" />
-          <p className="text-lg font-semibold tracking-[0.18em] text-aurora-red md:text-xl">Workplace DNA Explorer</p>
-        </div>
-
-        <div className="mt-12">
+        <div className="mt-8">
           <div>
             <h1 className="max-w-none text-[44px] font-semibold leading-[0.98] tracking-normal text-aurora-ink md:whitespace-nowrap md:text-[64px] xl:text-[78px]">
               ACTIVA Workplace DNA Explorer
