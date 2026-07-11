@@ -38,14 +38,14 @@ export function UsageCounter({ count, variant = "default" }: UsageCounterProps) 
 
   if (variant === "compact") {
     return (
-      <div className="inline-flex h-[52px] min-w-[204px] items-center justify-center border border-aurora-line bg-white px-6 text-base font-semibold tabular-nums text-aurora-ink shadow-[0_10px_24px_rgba(32,33,36,0.05)]">
+      <div className="inline-flex h-11 min-w-[196px] items-center justify-center rounded-[6px] border border-aurora-line bg-white px-5 text-sm font-semibold tabular-nums text-aurora-ink shadow-subtle">
         已使用：{displayCount.toLocaleString("zh-TW")}人次
       </div>
     );
   }
 
   return (
-    <div className="inline-flex items-center border border-aurora-red bg-white px-4 py-3 shadow-subtle">
+    <div className="inline-flex items-center rounded-[6px] border border-aurora-red bg-white px-4 py-3 shadow-subtle">
       <p className="text-sm font-semibold text-aurora-ink">
         已使用：<span className="text-lg text-aurora-red">{displayCount.toLocaleString("zh-TW")}</span>人次
       </p>

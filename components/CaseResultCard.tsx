@@ -13,7 +13,7 @@ function TagList({ items }: { items: string[] }) {
   return (
     <div className="flex flex-wrap gap-1.5">
       {items.slice(0, 4).map((item) => (
-        <span key={item} className="border border-aurora-line bg-white px-2.5 py-1 text-xs leading-none text-aurora-graphite">
+        <span key={item} className="rounded-full border border-aurora-line bg-white px-2.5 py-1 text-xs leading-none text-aurora-graphite">
           {item}
         </span>
       ))}
@@ -25,7 +25,7 @@ export function CaseResultCard({ item, rank, selected, disabled, onToggle }: Cas
   const sourceLabel = item.source_url.includes("aid.aurora.com.tw") ? "大震設計" : "震旦家具";
 
   return (
-    <article className={`border bg-white transition duration-200 ease-out hover:border-aurora-red hover:shadow-subtle ${selected ? "border-aurora-red shadow-subtle" : "border-aurora-line"}`}>
+    <article className={`overflow-hidden rounded-[10px] border bg-white transition duration-200 ease-out hover:-translate-y-0.5 hover:border-aurora-red hover:shadow-premium ${selected ? "border-aurora-red shadow-premium" : "border-aurora-line shadow-subtle"}`}>
       <div className="grid gap-0 lg:grid-cols-[72px_minmax(0,1fr)_176px_190px]">
         <div className="flex items-start border-b border-aurora-line bg-aurora-soft p-4 lg:border-b-0 lg:border-r">
           <span className="text-xs font-semibold uppercase tracking-[0.16em] text-aurora-red">No.</span>
@@ -34,7 +34,7 @@ export function CaseResultCard({ item, rank, selected, disabled, onToggle }: Cas
 
         <div className="min-w-0 border-b border-aurora-line p-4 lg:border-b-0 lg:border-r">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="border border-aurora-line bg-white px-2.5 py-1 text-xs font-semibold text-aurora-graphite">{sourceLabel}</span>
+            <span className="rounded-full border border-aurora-line bg-white px-2.5 py-1 text-xs font-semibold text-aurora-graphite">{sourceLabel}</span>
             <span className="text-xs font-semibold uppercase tracking-[0.14em] text-aurora-red">Public case</span>
           </div>
           <h3 className="mt-2 text-xl font-semibold leading-snug text-aurora-ink">{item.title}</h3>
@@ -74,7 +74,7 @@ export function CaseResultCard({ item, rank, selected, disabled, onToggle }: Cas
               onClick={() => onToggle(item.id)}
               disabled={disabled && !selected}
               className={`px-4 py-2.5 text-sm font-semibold transition duration-200 ease-out ${
-                selected ? "bg-aurora-red text-white" : "border border-aurora-line text-aurora-ink hover:border-aurora-red hover:text-aurora-red"
+                selected ? "rounded-[6px] bg-aurora-red text-white" : "rounded-[6px] border border-aurora-line text-aurora-ink hover:border-aurora-red hover:text-aurora-red"
               } disabled:cursor-not-allowed disabled:opacity-40`}
             >
               {selected ? "已加入摘要" : "加入案例摘要"}
@@ -83,7 +83,7 @@ export function CaseResultCard({ item, rank, selected, disabled, onToggle }: Cas
               href={item.source_url}
               target="_blank"
               rel="noreferrer"
-              className="border border-aurora-line px-4 py-2.5 text-center text-sm font-semibold text-aurora-ink transition duration-200 ease-out hover:border-aurora-red hover:text-aurora-red"
+              className="rounded-[6px] border border-aurora-line px-4 py-2.5 text-center text-sm font-semibold text-aurora-ink transition duration-200 ease-out hover:border-aurora-red hover:text-aurora-red"
             >
               公開來源連結
             </a>

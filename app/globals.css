@@ -3,8 +3,16 @@
 @tailwind utilities;
 
 :root {
-  color: #202124;
+  color: #15191d;
   background: #ffffff;
+  --aurora-red: #b80f2c;
+  --aurora-ink: #15191d;
+  --aurora-graphite: #5f6b72;
+  --aurora-line: #dedbd3;
+  --aurora-soft: #f7f7f5;
+  --aurora-surface: #ffffff;
+  --aurora-radius: 10px;
+  --aurora-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
 }
 
 * {
@@ -13,14 +21,29 @@
 
 body {
   margin: 0;
-  background: #ffffff;
-  color: #202124;
-  font-family: Arial, "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  background: var(--aurora-soft);
+  color: var(--aurora-ink);
+  font-family: Inter, "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+  font-feature-settings: "kern";
+  text-rendering: geometricPrecision;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--aurora-red);
+  outline-offset: 2px;
 }
 
 .aurora-container {

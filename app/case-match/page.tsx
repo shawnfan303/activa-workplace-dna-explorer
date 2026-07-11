@@ -108,16 +108,16 @@ export default function CaseMatchPage() {
   ] satisfies Array<{ id: FlowStep; label: string }>;
 
   return (
-    <main>
-      <section className="border-b border-aurora-line bg-aurora-soft">
-        <div className="aurora-container pb-20 pt-14 md:pb-24 md:pt-18">
+    <main className="bg-aurora-soft">
+      <section className="border-b border-aurora-line bg-white">
+        <div className="aurora-container pb-16 pt-10 md:pb-20 md:pt-14">
           <div>
-            <h1 className="whitespace-nowrap text-[clamp(2.75rem,5.4vw,4.75rem)] font-semibold leading-none text-aurora-ink">AURORA Case Match Engine</h1>
+            <h1 className="whitespace-nowrap text-[clamp(2.75rem,5.4vw,4.75rem)] font-semibold leading-[1.02] text-aurora-ink">AURORA Case Match Engine</h1>
             <p className="mt-5 max-w-none text-base leading-7 text-aurora-graphite md:whitespace-nowrap md:text-lg">
               用公開案例，快速找到最適合企業客戶的辦公空間參考。正式流程分為需求條件、推薦案例與案例摘要三段，協助營業拜訪前快速建立討論方向。
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <button type="button" onClick={startCaseMatch} className="bg-aurora-red px-5 py-3 text-sm font-semibold text-white shadow-subtle transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-red-800 hover:shadow-[0_18px_36px_rgba(200,16,46,0.18)]">
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <button type="button" onClick={startCaseMatch} className="rounded-[6px] bg-aurora-red px-5 py-3 text-sm font-semibold text-white shadow-subtle transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-red-800 hover:shadow-premium">
                 開始案例匹配
               </button>
               <UsageCounter count={usageCount} variant="compact" />
@@ -126,10 +126,10 @@ export default function CaseMatchPage() {
         </div>
       </section>
 
-      <div className="aurora-container py-8">
-        <div className="grid gap-3 border border-aurora-line bg-white p-3 md:grid-cols-3">
+      <div className="aurora-container py-7">
+        <div className="grid gap-2 rounded-[10px] border border-aurora-line bg-white p-2 shadow-subtle md:grid-cols-3">
           {stepItems.map((item) => (
-            <div key={item.id} className={`px-4 py-3 text-sm font-semibold ${flowStep === item.id ? "bg-aurora-red text-white" : "bg-aurora-soft text-aurora-graphite"}`}>
+            <div key={item.id} className={`rounded-[7px] px-4 py-3 text-sm font-semibold transition duration-200 ${flowStep === item.id ? "bg-aurora-red text-white" : "bg-aurora-soft text-aurora-graphite"}`}>
               {item.label}
             </div>
           ))}
@@ -140,7 +140,7 @@ export default function CaseMatchPage() {
         <div className="aurora-container grid gap-8 pb-10 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="space-y-6">
             <PublicDataNotice lastReviewed={lastReviewed} />
-            <div className="border border-aurora-line bg-white p-5">
+            <div className="rounded-[10px] border border-aurora-line bg-white p-5 shadow-subtle">
               <p className="text-sm font-semibold text-aurora-red">正式流程</p>
               <h2 className="mt-1 text-2xl font-semibold text-aurora-ink">先完成需求條件，再產生推薦案例</h2>
               <p className="mt-3 text-sm leading-7 text-aurora-graphite">
@@ -151,7 +151,7 @@ export default function CaseMatchPage() {
           <div className="space-y-6">
             <CaseMatchForm tags={tagsData} value={input} onChange={setInput} />
             <div className="flex justify-end">
-              <button type="button" onClick={generateResults} className="bg-aurora-red px-6 py-3 text-sm font-semibold text-white shadow-subtle transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-red-800 hover:shadow-[0_18px_36px_rgba(200,16,46,0.18)]">
+              <button type="button" onClick={generateResults} className="rounded-[6px] bg-aurora-red px-6 py-3 text-sm font-semibold text-white shadow-subtle transition duration-200 ease-out hover:-translate-y-0.5 hover:bg-red-800 hover:shadow-premium">
                 產生推薦案例
               </button>
             </div>
@@ -161,7 +161,7 @@ export default function CaseMatchPage() {
 
       {flowStep === "results" ? (
         <div className="aurora-container space-y-5 pb-10">
-          <section className="border border-aurora-line bg-white p-5">
+          <section className="rounded-[10px] border border-aurora-line bg-white p-5 shadow-subtle">
             <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_240px] lg:items-start">
               <div>
                 <p className="text-sm font-semibold text-aurora-red">Case shortlist</p>
@@ -170,7 +170,7 @@ export default function CaseMatchPage() {
                   此頁不是問診摘要，而是拜訪前的案例候選清單。先比較案例是否能作為開場素材，再選 1–3 個加入最後摘要。
                 </p>
               </div>
-              <div className="border border-aurora-line bg-aurora-soft p-4">
+              <div className="rounded-[8px] border border-aurora-line bg-aurora-soft p-4">
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-aurora-red">Selected</p>
                 <p className="mt-2 text-3xl font-semibold tabular-nums text-aurora-ink">{selectedCases.length} / 3</p>
                 <p className="mt-1 text-sm text-aurora-graphite">已加入案例摘要</p>
@@ -179,7 +179,7 @@ export default function CaseMatchPage() {
 
             <div className="mt-5 grid gap-3 md:grid-cols-4">
               {conditionSummary.map((item) => (
-                <div key={item.label} className="border border-aurora-line bg-white p-3">
+                <div key={item.label} className="rounded-[8px] border border-aurora-line bg-white p-3">
                   <p className="text-xs font-semibold text-aurora-red">{item.label}</p>
                   <p className="mt-1 truncate text-sm text-aurora-ink" title={item.value}>{item.value}</p>
                 </div>
@@ -189,7 +189,7 @@ export default function CaseMatchPage() {
 
           <section className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_320px]">
             <div id="case-results" className="space-y-3">
-              <div className="hidden border border-aurora-line bg-aurora-soft px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-aurora-graphite lg:grid lg:grid-cols-[72px_minmax(0,1fr)_176px_190px]">
+              <div className="hidden rounded-[8px] border border-aurora-line bg-aurora-soft px-4 py-3 text-xs font-semibold uppercase tracking-[0.12em] text-aurora-graphite lg:grid lg:grid-cols-[72px_minmax(0,1fr)_176px_190px]">
                 <span>Rank</span>
                 <span>Case / reason</span>
                 <span>Use case</span>
@@ -210,7 +210,7 @@ export default function CaseMatchPage() {
 
             <aside className="space-y-4 lg:sticky lg:top-6 lg:self-start">
               <StakeholderTalkingPoints stakeholder={input.stakeholder} />
-              <div className="border border-aurora-line bg-white p-5">
+              <div className="rounded-[10px] border border-aurora-line bg-white p-5 shadow-subtle">
                 <p className="text-sm font-semibold text-aurora-red">閱讀方式</p>
                 <ul className="mt-3 space-y-2 text-sm leading-6 text-aurora-graphite">
                   <li>- 先看分數與推薦原因，判斷是否適合作為拜訪開場。</li>
@@ -218,21 +218,21 @@ export default function CaseMatchPage() {
                   <li>- 需要完整背景時，再展開「查看詳細說明」。</li>
                 </ul>
               </div>
-              <div className="border border-aurora-line bg-white p-5">
+              <div className="rounded-[10px] border border-aurora-line bg-white p-5 shadow-subtle">
                 <p className="text-sm font-semibold text-aurora-red">匹配分數</p>
                 <p className="mt-2 text-sm leading-7 text-aurora-graphite">
                   分數代表公開案例與目前條件的相近程度，不是成交率或案例品質分數。
                 </p>
               </div>
-              <div className="grid gap-3 border border-aurora-line bg-white p-5">
-                <button type="button" onClick={() => goToStep("input")} className="border border-aurora-line px-5 py-3 text-sm font-semibold text-aurora-ink transition hover:border-aurora-red hover:text-aurora-red">
+              <div className="grid gap-3 rounded-[10px] border border-aurora-line bg-white p-5 shadow-subtle">
+                <button type="button" onClick={() => goToStep("input")} className="rounded-[6px] border border-aurora-line bg-white px-5 py-3 text-sm font-semibold text-aurora-ink transition duration-200 hover:border-aurora-red hover:text-aurora-red">
                   返回修改條件
                 </button>
                 <button
                   type="button"
                   onClick={() => goToStep("brief")}
                   disabled={selectedCases.length === 0}
-                  className="bg-aurora-red px-6 py-3 text-sm font-semibold text-white shadow-subtle transition hover:bg-red-800 disabled:cursor-not-allowed disabled:opacity-40"
+                  className="rounded-[6px] bg-aurora-red px-6 py-3 text-sm font-semibold text-white shadow-subtle transition duration-200 hover:bg-red-800 disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   產生案例匹配摘要
                 </button>
@@ -250,10 +250,10 @@ export default function CaseMatchPage() {
               <h2 className="mt-1 text-3xl font-semibold text-aurora-ink">案例匹配摘要</h2>
             </div>
             <div className="flex flex-wrap gap-2">
-              <button type="button" onClick={() => goToStep("results")} className="border border-aurora-line px-5 py-3 text-sm font-semibold text-aurora-ink transition hover:border-aurora-red hover:text-aurora-red">
+              <button type="button" onClick={() => goToStep("results")} className="rounded-[6px] border border-aurora-line bg-white px-5 py-3 text-sm font-semibold text-aurora-ink transition duration-200 hover:border-aurora-red hover:text-aurora-red">
                 返回推薦案例
               </button>
-              <button type="button" onClick={() => goToStep("input")} className="border border-aurora-line px-5 py-3 text-sm font-semibold text-aurora-ink transition hover:border-aurora-red hover:text-aurora-red">
+              <button type="button" onClick={() => goToStep("input")} className="rounded-[6px] border border-aurora-line bg-white px-5 py-3 text-sm font-semibold text-aurora-ink transition duration-200 hover:border-aurora-red hover:text-aurora-red">
                 重新設定條件
               </button>
             </div>

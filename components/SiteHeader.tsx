@@ -27,7 +27,7 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="border-b border-aurora-line bg-white">
+    <header className="border-b border-aurora-line bg-white/95">
       <nav className="aurora-container flex min-h-16 items-center justify-between gap-4">
         <Link href="/customer-toolbox" className="flex flex-none items-center gap-3 font-bold text-aurora-ink">
           <img className="h-10 w-auto md:h-12" src={`${assetPath("/images/aurora-furniture-logo.png")}?v=transparent`} alt="震旦家具 AURORA Furniture" />
@@ -38,7 +38,7 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className={`whitespace-nowrap px-2.5 py-2 font-semibold transition hover:text-aurora-red ${isActive(item.href) ? "text-aurora-red" : ""}`}
+              className={`whitespace-nowrap rounded-[6px] px-2.5 py-2 font-semibold transition duration-200 hover:bg-aurora-soft hover:text-aurora-red ${isActive(item.href) ? "bg-aurora-soft text-aurora-red" : ""}`}
             >
               {item.label}
             </Link>

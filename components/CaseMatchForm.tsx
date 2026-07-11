@@ -38,7 +38,7 @@ export function CaseMatchForm({ tags, value, onChange }: CaseMatchFormProps) {
   return (
     <section id="case-match-form" className="space-y-5">
       {fieldLabels.map((field) => (
-        <div key={field.key} className="border border-aurora-line bg-white p-5">
+        <div key={field.key} className="rounded-[10px] border border-aurora-line bg-white p-5 shadow-subtle">
           <div className="flex flex-col gap-1 md:flex-row md:items-end md:justify-between">
             <div>
               <h2 className="text-xl font-semibold text-aurora-ink">{field.label}</h2>
@@ -54,8 +54,8 @@ export function CaseMatchForm({ tags, value, onChange }: CaseMatchFormProps) {
                   type="button"
                   key={option}
                   onClick={() => toggle(field.key, option)}
-                  className={`border px-3 py-2 text-sm font-medium transition ${
-                    active ? "border-aurora-red bg-red-50 text-aurora-red" : "border-aurora-line bg-white text-aurora-graphite hover:border-aurora-red"
+                  className={`rounded-full border px-3 py-2 text-sm font-medium transition duration-200 ${
+                    active ? "border-aurora-red bg-red-50 text-aurora-red" : "border-aurora-line bg-white text-aurora-graphite hover:border-aurora-red hover:text-aurora-red"
                   }`}
                 >
                   {option}
@@ -66,12 +66,12 @@ export function CaseMatchForm({ tags, value, onChange }: CaseMatchFormProps) {
         </div>
       ))}
 
-      <div className="border border-aurora-line bg-white p-5">
+      <div className="rounded-[10px] border border-aurora-line bg-white p-5 shadow-subtle">
         <h2 className="text-xl font-semibold text-aurora-ink">Step 7｜選擇主要溝通對象</h2>
         <select
           value={value.stakeholder}
           onChange={(event) => onChange({ ...value, stakeholder: event.target.value })}
-          className="mt-4 w-full border border-aurora-line bg-white px-4 py-3 text-sm text-aurora-ink outline-none focus:border-aurora-red"
+          className="mt-4 w-full rounded-[6px] border border-aurora-line bg-white px-4 py-3 text-sm text-aurora-ink outline-none transition duration-200 focus:border-aurora-red"
         >
           {tags.stakeholders.map((stakeholder) => (
             <option key={stakeholder} value={stakeholder}>

@@ -10,15 +10,16 @@ const config: Config = {
     extend: {
       colors: {
         aurora: {
-          red: "#C8102E",
-          ink: "#202124",
-          graphite: "#4B5563",
-          line: "#E5E7EB",
-          soft: "#F7F7F8"
+          red: "#B80F2C",
+          ink: "#15191D",
+          graphite: "#5F6B72",
+          line: "#DEDCD4",
+          soft: "#F7F7F5"
         }
       },
       boxShadow: {
-        subtle: "0 18px 45px rgba(32, 33, 36, 0.08)"
+        subtle: "0 1px 2px rgba(16, 24, 40, 0.04)",
+        premium: "0 14px 34px rgba(16, 24, 40, 0.08)"
       }
     }
   },

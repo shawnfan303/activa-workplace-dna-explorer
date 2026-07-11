@@ -26,13 +26,13 @@ export function DiscoveryForm({ tags, value, onChange }: DiscoveryFormProps) {
   return (
     <section className="space-y-5">
       {fields.map((field) => (
-        <div key={field.key} className="border border-aurora-line bg-white p-5 shadow-[0_10px_30px_rgba(15,23,42,0.04)]">
+        <div key={field.key} className="rounded-[10px] border border-aurora-line bg-white p-5 shadow-subtle">
           <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
             <div>
               <h2 className="text-xl font-semibold text-aurora-ink">{field.title}</h2>
               <p className="mt-1 text-sm leading-6 text-aurora-graphite">{field.helper}</p>
             </div>
-            <span className="w-fit border border-aurora-line bg-aurora-soft px-3 py-1 text-xs font-semibold text-aurora-graphite">已選 {value[field.key].length} 項</span>
+            <span className="w-fit rounded-full border border-aurora-line bg-aurora-soft px-3 py-1 text-xs font-semibold text-aurora-graphite">已選 {value[field.key].length} 項</span>
           </div>
           <div className="mt-4 flex flex-wrap gap-2">
             {tags[field.key].map((option) => {
@@ -42,7 +42,7 @@ export function DiscoveryForm({ tags, value, onChange }: DiscoveryFormProps) {
                   type="button"
                   key={option}
                   onClick={() => toggle(field.key, option)}
-                  className={`border px-3 py-2 text-sm font-medium transition ${active ? "border-aurora-red bg-red-50 text-aurora-red shadow-sm" : "border-aurora-line bg-white text-aurora-graphite hover:border-aurora-red hover:text-aurora-red"}`}
+                  className={`rounded-full border px-3 py-2 text-sm font-medium transition duration-200 ${active ? "border-aurora-red bg-red-50 text-aurora-red shadow-sm" : "border-aurora-line bg-white text-aurora-graphite hover:border-aurora-red hover:text-aurora-red"}`}
                 >
                   {option}
                 </button>
