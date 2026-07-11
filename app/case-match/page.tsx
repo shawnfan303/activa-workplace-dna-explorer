@@ -108,6 +108,7 @@ export default function CaseMatchPage() {
   ] satisfies Array<{ id: FlowStep; label: string }>;
 
   return (
+    <>
     <main className="bg-aurora-soft">
       <section className="border-b border-aurora-line bg-white">
         <div className="aurora-container pb-16 pt-10 md:pb-20 md:pt-14">
@@ -262,5 +263,11 @@ export default function CaseMatchPage() {
         </div>
       ) : null}
     </main>
+    <footer className="border-t border-aurora-line bg-white">
+      <div className="aurora-container py-7 text-sm font-semibold text-aurora-graphite">
+        © 2026 Shawn Fan. Concept, Product Design &amp; Development.
+      </div>
+    </footer>
+    </>
   );
 }
