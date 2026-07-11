@@ -28,7 +28,7 @@ export default function HomePage() {
         </div>
       </section>
       <footer className="border-t border-aurora-line bg-white">
-        <div className="aurora-container py-7 text-sm font-semibold text-aurora-graphite">
+        <div className="aurora-container py-10 text-center text-sm font-semibold text-aurora-graphite md:py-12">
           © 2026 Shawn Fan. Concept, Product Design &amp; Development.
         </div>
       </footer>

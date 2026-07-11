@@ -225,9 +225,8 @@ export default function CustomerToolboxPage() {
       </main>
 
       <footer className="border-t border-[#242b2f] bg-[#0e1214] text-white">
-        <div className={`${tokens.container} flex flex-col gap-4 py-7 text-sm text-white/60 md:flex-row md:items-center md:justify-between`}>
+        <div className={`${tokens.container} py-10 text-center text-sm text-white/70 md:py-12`}>
           <p className="font-semibold text-white">© 2026 Shawn Fan. Concept, Product Design &amp; Development.</p>
-          <p>顧客經營工具箱 / Version 2026 Q3</p>
         </div>
       </footer>
     </div>
